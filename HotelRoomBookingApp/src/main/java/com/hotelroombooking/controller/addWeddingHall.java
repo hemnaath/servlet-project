@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
 import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.WeddingHallTransaction;
+import com.hotelroombooking.model.WeddingHallDetails;
 
 /**
- * Servlet implementation class updateweddingHall
+ * Servlet implementation class addWeddingHall
  */
-@WebServlet("/updateWeddingHall")
-public class updateweddingHall extends HttpServlet {
+@WebServlet("/addWeddingHall")
+public class addWeddingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateweddingHall() {
+    public addWeddingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,20 +44,19 @@ public class updateweddingHall extends HttpServlet {
 		
 		
 		
-		
 		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
-		String checkIn = request.getParameter("checkIn");
-		String checkOut = request.getParameter("checkOut");
 		String category = request.getParameter("category");
 		String location = request.getParameter("location");
+		int price = Integer.parseInt(request.getParameter("price"));
 		
-		WeddingHallTransaction weddingHallTransObj = new WeddingHallTransaction(weddingHallNumber,checkIn,checkOut,category,location);
-		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
+		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails();
+		WeddingHallTransactionDaoImpl weddingHallTransDao = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("updateWeddingHallDetails", weddingHallTransObj);
-		boolean flag=weddingHallTransDaoObj.updateWeddingHall(session);
+		session.setAttribute("addWeddingHallDetails", weddingHallDetailsObj);
+		boolean flag = weddingHallTransDao.addWeddingHallAdmin(session);
 		PrintWriter pw = response.getWriter();
 		pw.write(flag+"");
+		
 		
 		
 		

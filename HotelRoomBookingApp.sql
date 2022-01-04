@@ -87,7 +87,7 @@ foreign key (guest_id) references guest_details(id)
 );
 
 create table payment_details(
-id int primary key,
+id int GENERATED ALWAYS AS IDENTITY START WITH 1 primary key,
 card_number number(16),
 guest_id int,
 foreign key (guest_id) references guest_details (id)
@@ -115,10 +115,11 @@ select * from wedding_hall_transaction;
 select * from meeting_hall_transaction;
 select * from admin;
 select * from payment_details;
+desc payment_details;
 
 truncate table room_transaction;
 truncate table wedding_hall_transaction;
 truncate table meeting_hall_transaction;
 
-select room_number from room_details where status='vacant' and category='premium' and location='chennai';
+
 commit;

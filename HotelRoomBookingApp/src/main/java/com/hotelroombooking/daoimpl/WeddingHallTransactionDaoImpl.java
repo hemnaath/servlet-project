@@ -29,13 +29,10 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 	public boolean bookWeddingHall(HttpSession session)
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Scanner sc = new Scanner(System.in);
 		int vacantWeddingRoomNumber=0;
 		int guestId=0;
 		int i=0;
 		boolean flag=false;
-		Date checkIn;
-		Date checkOut;
 //		WeddingHallTransaction weddingHallTransObj=null;
 		
 		try {
@@ -176,7 +173,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 	
 	public boolean updateWeddingHall(HttpSession session)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Scanner sc = new Scanner(System.in);
 		int vacantWeddingRoomNumber=0;
 		
@@ -418,32 +415,35 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 	
 	
 	
-	public void updateWeddingHallAdmin()
+	public boolean updateWeddingHallAdmin(HttpSession session)
 	{
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+		boolean flag=false;
 		
 		try {
-		System.out.println("enter wedding room number");
-		int weddingHallNumber = Integer.parseInt(sc.nextLine());
-		System.out.println("enter wedding room category");
-		String weddingHallCategory = sc.nextLine();
-		System.out.println("enter wedding room location");
-		String weddingHallLocation = sc.nextLine();
-		System.out.println("enter wedding room price");
-		int weddingHallPrice = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter wedding room number");
+//		int weddingHallNumber = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter wedding room category");
+//		String weddingHallCategory = sc.nextLine();
+//		System.out.println("enter wedding room location");
+//		String weddingHallLocation = sc.nextLine();
+//		System.out.println("enter wedding room price");
+//		int weddingHallPrice = Integer.parseInt(sc.nextLine());
+			WeddingHallDetails weddingHallDetailsObj=(WeddingHallDetails)session.getAttribute("editWeddingHallDetails");
 		
 		String updateRoomQuery="update wedding_hall_details set category=?,location=?,price=? where wedding_hall_number=?";
+		
 		
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(updateRoomQuery);
 		
-		pstmt.setString(1, weddingHallCategory);
-		pstmt.setString(2, weddingHallLocation);
-		pstmt.setInt(3, weddingHallPrice);
-		pstmt.setInt(4, weddingHallNumber);
+		pstmt.setString(1, weddingHallDetailsObj.getCategory());
+		pstmt.setString(2, weddingHallDetailsObj.getLocation());
+		pstmt.setInt(3, weddingHallDetailsObj.getPrice());
+		pstmt.setInt(4, weddingHallDetailsObj.getweddingHallNumber());
 		
-		int i=pstmt.executeUpdate();
-		if(i>0)
+		flag=pstmt.executeUpdate()>0;
+		if(flag)
 		{
 			System.out.println("wedding hall updated");
 		}
@@ -455,6 +455,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 		catch(Exception e) {
 			System.out.println(e);
 		}
+		return flag;
 	}
 	
 	

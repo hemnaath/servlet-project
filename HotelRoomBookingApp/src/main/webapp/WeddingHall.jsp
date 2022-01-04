@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <form action="bookWeddingHall" method="post">
 <input type="date" id="checkIn" name="checkIn">
 <input type="date" id="checkOut" name="checkOut">
@@ -27,7 +28,7 @@
 <input type="submit" value="Book Wedding hall">
 </form>
 
-<form action="updateWeddingHall" method="post">
+<form  action="updateWeddingHall" method="post">
 <input type="text" id=weddingHallNumber name="weddingHallNumber">
 <input type="date" id="checkIn" name="checkIn">
 <input type="date" id="checkOut" name="checkOut">

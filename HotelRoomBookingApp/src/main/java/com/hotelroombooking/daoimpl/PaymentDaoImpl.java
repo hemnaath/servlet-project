@@ -16,7 +16,7 @@ public class PaymentDaoImpl
 		System.out.println("Enter Card Details");
 		long cardNumber = sc.nextLong();
 		
-		String cardDetailsQuery = "insert into cardDetailsValues values (?)";
+		String cardDetailsQuery = "insert into payment_details values (?)";
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(cardDetailsQuery);
 		pstmt.setLong(1, cardNumber);

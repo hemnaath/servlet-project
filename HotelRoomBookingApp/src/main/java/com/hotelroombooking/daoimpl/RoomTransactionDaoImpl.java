@@ -182,7 +182,7 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 	
 	public boolean updateRoom(HttpSession session)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		int vacantRoomNumber=0;
 		int guestId=0;
 		boolean flag=false;

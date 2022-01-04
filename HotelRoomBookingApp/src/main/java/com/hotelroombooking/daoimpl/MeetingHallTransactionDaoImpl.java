@@ -18,8 +18,10 @@ import com.hotelroombooking.dao.MeetingHallTransactionDao;
 import com.hotelroombooking.message.Mail;
 import com.hotelroombooking.message.Mailer;
 import com.hotelroombooking.model.Guest;
+import com.hotelroombooking.model.MeetingHallDetails;
 import com.hotelroombooking.model.MeetingHallTransaction;
 import com.hotelroombooking.model.RoomTransaction;
+import com.hotelroombooking.model.WeddingHallDetails;
 import com.hotelroombooking.model.WeddingHallTransaction;
 import com.hotelroombooking.util.ConnectionUtil;
 
@@ -27,7 +29,7 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 {
 	public boolean bookMeetingHall(HttpSession session) 
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		int vacantMeetingRoomNumber=0;
 		int guestId=0;
@@ -172,7 +174,7 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 	{
 		
 		 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Scanner sc = new Scanner(System.in);
 		int vacantMeetingHallNumber=0;
 		int i=0;
@@ -324,19 +326,21 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 	
 	
 	
-	public void addMeetingHallAdmin() 
+	public boolean addMeetingHallAdmin(HttpSession session) 
 	{
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+		boolean flag=false;
 		
 		try {
-		System.out.println("enter meeting hall number");
-		int meetingHallNumber = Integer.parseInt(sc.nextLine());
-		System.out.println("enter meeting hall category");
-		String meetingHallCategory = sc.nextLine();
-		System.out.println("enter meeting hall location");
-		String meetingHallLocation = sc.nextLine();
-		System.out.println("enter meeting hall price");
-		int meetingHallPrice = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter meeting hall number");
+//		int meetingHallNumber = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter meeting hall category");
+//		String meetingHallCategory = sc.nextLine();
+//		System.out.println("enter meeting hall location");
+//		String meetingHallLocation = sc.nextLine();
+//		System.out.println("enter meeting hall price");
+//		int meetingHallPrice = Integer.parseInt(sc.nextLine());
+			MeetingHallDetails meetingHallDetailsObj=(MeetingHallDetails)session.getAttribute("addMeetingHallDetails");
 		
 		
 		String addMeetingHallQuery="insert into meeting_hall_details(meeting_hall_number,category,location,price) values(?,?,?,?)";
@@ -344,13 +348,13 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(addMeetingHallQuery);
 		
-		pstmt.setInt(1,meetingHallNumber);
-		pstmt.setString(2,meetingHallCategory);
-		pstmt.setString(3,meetingHallLocation);
-		pstmt.setInt(4,meetingHallPrice);
+		pstmt.setInt(1,meetingHallDetailsObj.getmeetingHallNumber());
+		pstmt.setString(2,meetingHallDetailsObj.getCategory());
+		pstmt.setString(3,meetingHallDetailsObj.getLocation());
+		pstmt.setInt(4,meetingHallDetailsObj.getPrice());
 		
-		int i=pstmt.executeUpdate();
-		if(i>0)
+		flag=pstmt.executeUpdate()>0;
+		if(flag)
 		{
 			System.out.println("meeting hall added");
 		}
@@ -362,6 +366,7 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		catch(Exception e) {
 			System.out.println(e);
 		}
+		return flag;
 	}
 	
 	

@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="bookMeetingHall" method="post">
+<form  action="bookMeetingHall"method="post">
 <input type="date" id="checkIn" name="checkIn">
 <input type="date" id="checkOut" name="checkOut">
 <input type="text" id="cat" list="category" name="category" required>
@@ -44,7 +44,7 @@
 <option value="madurai">Madurai</option>
 <option value="sivakasi">Sivakasi</option>
 </datalist>
-<button>Update Metting Hall</button>
+<button>Update Meeting Hall</button>
 </form>
 
 <form action="cancelMeetingHall" method="post">

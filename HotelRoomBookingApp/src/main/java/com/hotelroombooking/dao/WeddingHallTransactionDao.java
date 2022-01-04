@@ -15,5 +15,5 @@ public interface WeddingHallTransactionDao
 	public List<WeddingHallTransaction> showWeddingHallBooking(Guest guestObj);
 	public boolean addWeddingHallAdmin(HttpSession session);
 	public boolean deleteWeddingHallAdmin(HttpSession session);
-	public void updateWeddingHallAdmin();
+	public boolean updateWeddingHallAdmin(HttpSession session);
 }
