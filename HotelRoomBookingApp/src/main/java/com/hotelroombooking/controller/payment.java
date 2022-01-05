@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.model.RoomDetails;
-import com.hotelroombooking.model.RoomTransaction;
+import com.hotelroombooking.daoimpl.PaymentDaoImpl;
+import com.hotelroombooking.model.Payment;
 
 /**
- * Servlet implementation class addRoom
+ * Servlet implementation class payment
  */
-@WebServlet("/addRoom")
-public class addRoom extends HttpServlet {
+@WebServlet("/payment")
+public class payment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addRoom() {
+    public payment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,30 +44,15 @@ public class addRoom extends HttpServlet {
 		
 		
 		
-		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
-		String category = request.getParameter("category");
-		String location = request.getParameter("location");
-		int price = Integer.parseInt(request.getParameter("price"));
+		long cardNumber = Long.parseLong(request.getParameter("cardNumber"));
 		
-		RoomDetails roomDetailsObj = new RoomDetails(roomNumber,null,category,location,price);
-		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
+		Payment paymentObj = new Payment(0,cardNumber,null);
+		PaymentDaoImpl paymentDaoObj = new PaymentDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("addRoomDetails", roomDetailsObj);
-		boolean flag=roomTransDaoObj.addRoomAdmin(session);
-		
-		PrintWriter out = response.getWriter();
-		if(flag)
-		{
-		  
-			response.sendRedirect("AdminDashboard.jsp");
-		}
-		
-		
-//		PrintWriter pw = response.getWriter();
-//		pw.write(flag+"");
-		
-		
-		
+		session.setAttribute("payment", paymentObj);
+		boolean flag = paymentDaoObj.payment(session);
+		PrintWriter pw = response.getWriter();
+		pw.write(flag+"");
 		
 		
 		
@@ -76,4 +60,4 @@ public class addRoom extends HttpServlet {
 //		doGet(request, response);
 	}
 
- }
+}

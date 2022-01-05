@@ -9,16 +9,16 @@
 <body>
 
 <form action="bookWeddingHall" method="post">
-<input type="date" id="checkIn" name="checkIn">
-<input type="date" id="checkOut" name="checkOut">
-<input type="text" id="cat" list="category" name="category" required>
+Check-In :<input type="date" id="checkIn" name="checkIn" >
+Check-Out :<input type="date" id="checkOut" name="checkOut" >
+Category :<input type="text" id="cat" list="category" name="category" required>
 <datalist id="category" name="category">
 <option value="premium">premium</option>
 <option value="luxury">luxury</option>
 <option value="standard">standard</option>
 <option value="budget">budget</option>
 </datalist>
-<input type="text" id="loc" list="location" name="location" required>
+Location :<input type="text" id="loc" list="location" name="location" required>
 <datalist id="location" name="location">
 <option value="chennai">Chennai</option>
 <option value="coimbatore">Coimbatore</option>
@@ -29,17 +29,17 @@
 </form>
 
 <form  action="updateWeddingHall" method="post">
-<input type="text" id=weddingHallNumber name="weddingHallNumber">
-<input type="date" id="checkIn" name="checkIn">
-<input type="date" id="checkOut" name="checkOut">
-<input type="text" id="cat" list="category" name="category" required>
+Wedding Hall Number :<input type="text" id=weddingHallNumber name="weddingHallNumber" >
+Check-In :<input type="date" id="checkIn" name="checkIn" >
+Check-Out :<input type="date" id="checkOut" name="checkOut" >
+Category :<input type="text" id="cat" list="category" name="category" required>
 <datalist id="category" name="category">
 <option value="premium">premium</option>
 <option value="luxury">luxury</option>
 <option value="standard">standard</option>
 <option value="budget">budget</option>
 </datalist>
-<input type="text" id="loc" list="location" name="location" required>
+Location :<input type="text" id="loc" list="location" name="location" required>
 <datalist id="location" name="location">
 <option value="chennai">Chennai</option>
 <option value="coimbatore">Coimbatore</option>
@@ -50,7 +50,7 @@
 </form>
 
 <form action="cancelWeddingHall" method="post">
-<input type="text" id=weddingHallNumber name="weddingHallNumber">
+Wedding Hall Number :<input type="text" id=weddingHallNumber name="weddingHallNumber" >
 <button>cancel Wedding Hall</button>
 </form>
 </body>

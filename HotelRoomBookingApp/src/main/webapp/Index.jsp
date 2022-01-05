@@ -8,11 +8,10 @@
 </head>
 <body>
 <form action="index" method="post">
-<input type="text" id="email" name="email" placeholder="Email" ><br>
-<input type="password" id="password" name="password" placeholder="Password" ><br>
+Email :<input type="text" id="email" name="email" placeholder="Email" ><br>
+Password :<input type="password" id="password" name="password" placeholder="Password" ><br>
 <input type="submit" value="LOGIN" class="login-signin"><br>
 <a href="Register.jsp"><input type="button" value="REGISTER"></a>
-<label>Forget Password ?</label>
 </form>
 </body>
 </html>

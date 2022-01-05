@@ -45,11 +45,15 @@ public class addWeddingHall extends HttpServlet {
 		
 		
 		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
+		System.out.println(weddingHallNumber);
 		String category = request.getParameter("category");
+		System.out.println(category);
 		String location = request.getParameter("location");
+		System.out.println(location);
 		int price = Integer.parseInt(request.getParameter("price"));
+		System.out.println(price);
 		
-		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails();
+		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails(weddingHallNumber,null,category,location,price);
 		WeddingHallTransactionDaoImpl weddingHallTransDao = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
 		session.setAttribute("addWeddingHallDetails", weddingHallDetailsObj);

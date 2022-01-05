@@ -1,5 +1,8 @@
 package com.hotelroombooking.dao;
 
-public interface PaymentDao {
+import javax.servlet.http.HttpSession;
 
+public interface PaymentDao 
+{
+	public boolean payment(HttpSession session);
 }

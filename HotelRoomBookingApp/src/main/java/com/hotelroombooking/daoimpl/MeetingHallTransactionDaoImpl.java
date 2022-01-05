@@ -341,21 +341,31 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 //		System.out.println("enter meeting hall price");
 //		int meetingHallPrice = Integer.parseInt(sc.nextLine());
 			MeetingHallDetails meetingHallDetailsObj=(MeetingHallDetails)session.getAttribute("addMeetingHallDetails");
-		
+		System.out.println("hlo");
 		
 		String addMeetingHallQuery="insert into meeting_hall_details(meeting_hall_number,category,location,price) values(?,?,?,?)";
+		System.out.println("hloo");
 		
 		Connection conn = ConnectionUtil.getDbConnection();
+		System.out.println("hlooo");
 		PreparedStatement pstmt = conn.prepareStatement(addMeetingHallQuery);
+		System.out.println("hloooo");
 		
 		pstmt.setInt(1,meetingHallDetailsObj.getmeetingHallNumber());
+		System.out.println(meetingHallDetailsObj.getmeetingHallNumber());
 		pstmt.setString(2,meetingHallDetailsObj.getCategory());
+		System.out.println(meetingHallDetailsObj.getCategory());
 		pstmt.setString(3,meetingHallDetailsObj.getLocation());
+		System.out.println(meetingHallDetailsObj.getLocation());
 		pstmt.setInt(4,meetingHallDetailsObj.getPrice());
+		System.out.println(meetingHallDetailsObj.getPrice());
 		
 		flag=pstmt.executeUpdate()>0;
+		System.out.println("hlooooo");
+		
 		if(flag)
 		{
+			System.out.println("hloooooo");
 			System.out.println("meeting hall added");
 		}
 		else
@@ -374,23 +384,27 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 	
 	
 	
-	public void deleteMeetingHallAdmin() 
+	public boolean deleteMeetingHallAdmin(HttpSession session) 
 	{
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+		boolean flag=false;
 		
 		try {
-		System.out.println("enter wedding hall number");
-		int meetingHallNumber = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter wedding hall number");
+//		int meetingHallNumber = Integer.parseInt(sc.nextLine());
+			MeetingHallDetails meetingHallDetailsObj=(MeetingHallDetails)session.getAttribute("deleteMeetingHallDetails");
+
 		
 		String deleteMeetingHallQuery = "delete from meeting_hall_details where meeting_hall_number=?";
 		
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(deleteMeetingHallQuery);
 		
-		pstmt.setInt(1, meetingHallNumber);
+		pstmt.setInt(1, meetingHallDetailsObj.getmeetingHallNumber());
+		System.out.println(meetingHallDetailsObj.getmeetingHallNumber());
 		
-		int i=pstmt.executeUpdate();
-		if(i>0)
+		flag=pstmt.executeUpdate()>0;
+		if(flag)
 		{
 			System.out.println("meeting hall deleted");
 		}
@@ -402,38 +416,52 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		catch(Exception e) {
 			System.out.println(e);
 		}
+		return flag;
 	}
 	
 	
 	
 	
 	
-	public void updateMeetingHallAdmin() 
+	public boolean updateMeetingHallAdmin(HttpSession session) 
 	{
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+		boolean flag=false;
 		
 		try {
-		System.out.println("enter meeting room number");
-		int meetingHallNumber = Integer.parseInt(sc.nextLine());
-		System.out.println("enter meeting room category");
-		String meetingHallCategory = sc.nextLine();
-		System.out.println("enter meeting room location");
-		String meetingHallLocation = sc.nextLine();
-		System.out.println("enter meeting room price");
-		int meetingHallPrice = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter meeting room number");
+//		int meetingHallNumber = Integer.parseInt(sc.nextLine());
+//		System.out.println("enter meeting room category");
+//		String meetingHallCategory = sc.nextLine();
+//		System.out.println("enter meeting room location");
+//		String meetingHallLocation = sc.nextLine();
+//		System.out.println("enter meeting room price");
+//		int meetingHallPrice = Integer.parseInt(sc.nextLine());
+			MeetingHallDetails meetingHallDetailsObj=(MeetingHallDetails)session.getAttribute("editMeetingHallDetails");
+			System.out.println("hlo");
+
 		
 		String updateRoomQuery="update meeting_hall_details set category=?,location=?,price=? where meeting_hall_number=?";
+		System.out.println("hloo");
 		
 		Connection conn = ConnectionUtil.getDbConnection();
+		System.out.println("hlooo");
 		PreparedStatement pstmt = conn.prepareStatement(updateRoomQuery);
+		System.out.println("hloooo");
 		
-		pstmt.setString(1, meetingHallCategory);
-		pstmt.setString(2, meetingHallLocation);
-		pstmt.setInt(3, meetingHallPrice);
-		pstmt.setInt(4, meetingHallNumber);
+		pstmt.setString(1, meetingHallDetailsObj.getCategory());
+		System.out.println(meetingHallDetailsObj.getCategory());
+		pstmt.setString(2, meetingHallDetailsObj.getLocation());
+		System.out.println(meetingHallDetailsObj.getLocation());
+		pstmt.setInt(3, meetingHallDetailsObj.getPrice());
+		System.out.println(meetingHallDetailsObj.getPrice());
+		pstmt.setInt(4, meetingHallDetailsObj.getmeetingHallNumber());
+		System.out.println(meetingHallDetailsObj.getmeetingHallNumber());
 		
-		int i=pstmt.executeUpdate();
-		if(i>0)
+		flag=pstmt.executeUpdate()>0;
+		System.out.println(flag);
+		System.out.println("hlooooo");
+		if(flag)
 		{
 			System.out.println("meeting hall updated");
 		}
@@ -445,7 +473,11 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		catch(Exception e) {
 			System.out.println(e);
 		}
+		return flag;
 	}
+
+
+
 	
 	
 	

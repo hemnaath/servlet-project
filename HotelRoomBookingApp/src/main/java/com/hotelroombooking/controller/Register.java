@@ -31,7 +31,7 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -50,13 +50,16 @@ public class Register extends HttpServlet {
 		GuestDaoImpl guestDaoObj = new GuestDaoImpl();
 		boolean flag=guestDaoObj.registerGuest(firstName, lastName, email, password, password, mobileNumber);
 		
-		PrintWriter pw = response.getWriter();
+		PrintWriter out = response.getWriter();
+		if(flag)
+		{
+		  
+			response.sendRedirect("Index.jsp");
+		}
 		
-		pw.write("flag");
 		
 		
-		
-		doGet(request, response);
+//		doGet(request, response);
 	}
 
 }

@@ -25,11 +25,7 @@ public class addmeetingHall extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addmeetingHall() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+  
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -52,10 +48,13 @@ public class addmeetingHall extends HttpServlet {
 		String location = request.getParameter("location");
 		int price = Integer.parseInt(request.getParameter("price"));
 		
-		MeetingHallDetails meetingHallDetailsObj = new MeetingHallDetails();
+		MeetingHallDetails meetingHallDetailsObj = new MeetingHallDetails(meetingHallNumber,null,category,location,price);
+//		System.out.println("hi");
 		MeetingHallTransactionDaoImpl meetingHallTransDao = new MeetingHallTransactionDaoImpl();
+//		System.out.println("hii");
 		HttpSession session = request.getSession();
 		session.setAttribute("addMeetingHallDetails", meetingHallDetailsObj);
+//		System.out.println("hy");
 		boolean flag = meetingHallTransDao.addMeetingHallAdmin(session);
 		PrintWriter pw = response.getWriter();
 		pw.write(flag+"");
