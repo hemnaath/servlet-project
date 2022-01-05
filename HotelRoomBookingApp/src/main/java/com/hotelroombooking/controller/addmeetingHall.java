@@ -56,11 +56,15 @@ public class addmeetingHall extends HttpServlet {
 		session.setAttribute("addMeetingHallDetails", meetingHallDetailsObj);
 //		System.out.println("hy");
 		boolean flag = meetingHallTransDao.addMeetingHallAdmin(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

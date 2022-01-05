@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="index" method="post">
-Email :<input type="text" id="email" name="email" placeholder="Email" ><br>
-Password :<input type="password" id="password" name="password" placeholder="Password" ><br>
+Email :<input type="text" id="email" name="email" placeholder="Email" required><br>
+Password :<input type="password" id="password" name="password" placeholder="Password" required><br>
 <input type="submit" value="LOGIN" class="login-signin"><br>
 <a href="Register.jsp"><input type="button" value="REGISTER"></a>
 </form>

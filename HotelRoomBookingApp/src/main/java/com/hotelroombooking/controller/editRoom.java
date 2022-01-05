@@ -51,11 +51,15 @@ public class editRoom extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("editRoomDetails", roomDetailsObj);
 		boolean flag = roomTransDaoObj.updateRoomAdmin(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 		

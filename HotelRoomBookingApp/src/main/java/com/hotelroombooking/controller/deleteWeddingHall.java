@@ -54,11 +54,15 @@ public class deleteWeddingHall extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("deleteWeddingHallDetails", weddingHallDetailsObj);
 		boolean flag = weddingHallTransDaoObj.deleteWeddingHallAdmin(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

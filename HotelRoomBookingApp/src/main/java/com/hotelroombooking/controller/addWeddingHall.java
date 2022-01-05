@@ -58,11 +58,15 @@ public class addWeddingHall extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("addWeddingHallDetails", weddingHallDetailsObj);
 		boolean flag = weddingHallTransDao.addWeddingHallAdmin(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

@@ -56,7 +56,7 @@ public class addRoom extends HttpServlet {
 		session.setAttribute("addRoomDetails", roomDetailsObj);
 		boolean flag=roomTransDaoObj.addRoomAdmin(session);
 		
-		PrintWriter out = response.getWriter();
+		
 		if(flag)
 		{
 		  

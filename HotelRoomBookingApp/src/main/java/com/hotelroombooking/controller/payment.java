@@ -51,8 +51,14 @@ public class payment extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("payment", paymentObj);
 		boolean flag = paymentDaoObj.payment(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+		
+		if(flag)
+		{
+			response.sendRedirect("GuestDashboard.jsp");
+		}
+		
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		
 		

@@ -53,11 +53,14 @@ public class cancelMeetingHall extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("cancelMeetingHallDetails", meetingHallTransObj);
 		boolean flag=meetingHallTransDaoObj.cancelMeetingHall(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		
-		
+		if(flag)
+		{
+			response.sendRedirect("GuestDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

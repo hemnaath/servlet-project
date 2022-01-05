@@ -50,10 +50,13 @@ public class cancelRoom extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("cancelRoomDetails", roomTransObj);
 		boolean flag=roomTransDaoObj.cancelRoom(session);
-		PrintWriter pw = response.getWriter();
-		pw.write(flag+"");
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
-		
+		if(flag)
+		{
+			response.sendRedirect("GuestDashboard.jsp");
+		}
 
 		
 		

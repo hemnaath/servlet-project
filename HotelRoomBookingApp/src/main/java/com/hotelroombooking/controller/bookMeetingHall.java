@@ -61,7 +61,11 @@ public class bookMeetingHall extends HttpServlet {
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 //		doGet(request, response);
 	}

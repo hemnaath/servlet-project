@@ -93,7 +93,7 @@ guest_id int,
 foreign key (guest_id) references guest_details (id)
 );
 
-desc hotel_payments;
+
 
 create table admin
 (
