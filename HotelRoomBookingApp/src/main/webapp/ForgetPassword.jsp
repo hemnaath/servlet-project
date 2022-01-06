@@ -8,25 +8,50 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+	 .loginForm {
+	    box-shadow: 0px 0px 14px 0px #d9d9d9;
+	    padding: 10px;
+	        margin: 50% auto;
+	}
+	.formBtn {
+	    text-align: center;
+	}
+	.formBtn input {
+	    margin: 10px;
+	}
+	.loginForm input {
+	    margin-bottom: 11px;
+	}
+  </style>
 </head>
 <body>
 
 <div style="display:block;margin:auto;">
-<div class="container">
-<form action="forgetpassword" method="post">
-<div class="col-xs-3">
-<label for="email">Email</label>
-<input type="text" id="email" name="email" class="form-control" placeholder="Enter Email" required>
-</div>
-<br><br><br><br>
-<div class="col-xs-3">
-<label for="password">Password</label>
-<input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
-</div>
-<br><br><br><br>
- <input type="submit" value="CHANGE PASSWORD" class="btn btn-success">
-</form>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+			<div class="loginForm card">
+				<form action="forgetpassword" method="post">
+					<div class="col-sm-12">
+						<label for="email">Email</label>
+							<input type="text" id="email" name="email" class="form-control" placeholder="Enter Email" pattern="[a-zA-Z0-9]+[@][a-z]+[.][a-z]+" title="Invalid Email" required>
+						</div>
+					<div class="col-sm-12">
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" pattern="[A-Z]+[a-z]+[0-9]+" title="password must contain
+				atleast one UPPER CASE, LOWER CASE, NUMBER" required>
+					</div>
+					<div class="formBtn">
+					 	<input type="submit" value="CHANGE PASSWORD" class="btn btn-success">
+					 </div>
+				</form>
+			</div>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
 </div>
 
 
