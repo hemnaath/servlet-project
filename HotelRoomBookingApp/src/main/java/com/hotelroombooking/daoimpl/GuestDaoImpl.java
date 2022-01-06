@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.servlet.http.HttpSession;
+
 import com.hotelroombooking.dao.GuestDao;
 import com.hotelroombooking.model.Guest;
+import com.hotelroombooking.model.MeetingHallTransaction;
 import com.hotelroombooking.util.ConnectionUtil;
 
 public class GuestDaoImpl  implements GuestDao{
@@ -130,33 +133,43 @@ public class GuestDaoImpl  implements GuestDao{
 	
 	
 	
-	public void forgetPassword() 
+	public boolean forgetPassword(HttpSession session) 
 	{
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+		boolean flag=false;
 		try {
-		System.out.println("Enter email");
-		String mail=sc.nextLine();
-		System.out.println("Enter new password");
-		String passwd=sc.nextLine();
+//		System.out.println("Enter email");
+//		String mail=sc.nextLine();
+//		System.out.println("Enter new password");
+//		String passwd=sc.nextLine();
+			
+			Guest guestObj = (Guest)session.getAttribute("forgetPassword");
 		
 		String forgetPasswordQuery = "update guest_details set password=? where email=?";
 		
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(forgetPasswordQuery);
 		
-		pstmt.setString(1, passwd);
-		pstmt.setString(2, mail);
+		pstmt.setString(1, guestObj.getPassword());
+//		System.out.println(guestObj.getEmail());
+		pstmt.setString(2, guestObj.getEmail());
+//		System.out.println(guestObj.getPassword());
 		
-		int i = pstmt.executeUpdate();
-		if(i>0)
+		flag = pstmt.executeUpdate()>0;
+		if(flag)
 		{
 			System.out.println("Password changed successfully");
+		}
+		else
+		{
+			System.err.println("error");
 		}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
+		return flag;
 	}
 	
 	

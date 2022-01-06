@@ -2,6 +2,8 @@ package com.hotelroombooking.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.hotelroombooking.model.Guest;
 
 public interface GuestDao {
@@ -11,5 +13,5 @@ public interface GuestDao {
 	public Guest loginGuest(String gUserName,String gPassword);
 	public int findGuestId(Guest guestObj) ;
 	public List<Guest> showAllUser();
-	public void forgetPassword();
+	public boolean forgetPassword(HttpSession session);
 }

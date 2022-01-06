@@ -89,7 +89,6 @@ function roomShow()
 
 
 
-
 <div style="display: none;" id="room">
 <form action="bookRoom" method="post">
 Check-In :<input type="date" id="checkIn" name="checkIn" required>
@@ -315,7 +314,7 @@ for(int i=0;i<meetingHallList.size();i++)
 
 
 
-<a href="Index.jsp"><h3>LOGOUT</h3></a>
+<a href="logout"><h3>LOGOUT</h3></a>
 
 
 

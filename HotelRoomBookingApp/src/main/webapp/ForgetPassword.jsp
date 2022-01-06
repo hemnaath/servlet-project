@@ -13,7 +13,7 @@
 
 <div style="display:block;margin:auto;">
 <div class="container">
-<form action="index" method="post">
+<form action="forgetpassword" method="post">
 <div class="col-xs-3">
 <label for="email">Email</label>
 <input type="text" id="email" name="email" class="form-control" placeholder="Enter Email" required>
@@ -24,9 +24,7 @@
 <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
 </div>
 <br><br><br><br>
- <input type="submit" value="LOGIN" class="btn btn-success">
-<a href="Register.jsp"><input type="button" class="btn btn-success" value="REGISTER"></a>
-<a href="ForgetPassword.jsp"><label>Forget Password</label></a>
+ <input type="submit" value="CHANGE PASSWORD" class="btn btn-success">
 </form>
 </div>
 </div>
