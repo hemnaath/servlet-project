@@ -87,6 +87,10 @@ function roomShow()
 		var users=document.getElementById("booking");
 		users.style.display="flex"
 	}
+	
+	
+
+
 </script>
 
 <div class="container">
@@ -103,10 +107,11 @@ function roomShow()
 		
 <div style="display: none;justify-content: space-between;" id="room">
 	<form action="bookRoom" method="post">
-		Check-In :
-		<br><input type="date" id="checkIn" name="checkIn" required><br>
+	
+		Check-In   :
+		<br><input type="date" id="bookRoomCheckIn" name="checkIn" required><br>
 		Check-Out:
-		<br><input type="date" id="checkOut" name="checkOut" required><br>
+		<br><input type="date" id="bookRoomCheckOut" name="checkOut" required><br>
 		Category :
 		<br><input type="text" id="cat" list="category" name="category" required><br>
 		<datalist id="category" name="category">
@@ -130,9 +135,9 @@ function roomShow()
 	Room Number :
 	<br><input type="text" id=roomNumber name="roomNumber" required><br>
 	Check-In :
-	<br><input type="date" id="checkIn" name="checkIn" required><br>
+	<br><input type="date" id="updateRoomCheckIn" name="checkIn" required><br>
 	Check-Out :
-	<br><input type="date" id="checkOut" name="checkOut" required><br>
+	<br><input type="date" id="updateRoomCheckOut" name="checkOut" required><br>
 	Category :
 	<br><input type="text" id="cat" list="category" name="category" required><br>
 	<datalist id="category" name="category">
@@ -162,9 +167,9 @@ function roomShow()
 <div style="display: none;justify-content: space-between;" id="wedding">
 	<form action="bookWeddingHall" method="post">
 	Check-In :
-	<br><input type="date" id="checkIn" name="checkIn" required><br>
+	<br><input type="date" id="bookWeddingHallCheckIn" name="checkIn" required><br>
 	Check-Out :
-	<br><input type="date" id="checkOut" name="checkOut" required><br>
+	<br><input type="date" id="bookWeddingHallCheckOut" name="checkOut" required><br>
 	Category :
 	<br><input type="text" id="cat" list="category" name="category" required><br>
 	<datalist id="category" name="category">
@@ -188,9 +193,9 @@ function roomShow()
 		Wedding Hall Number :
 		<br><input type="text" id=weddingHallNumber name="weddingHallNumber" required><br>
 		Check-In :
-		<br><input type="date" id="checkIn" name="checkIn" required><br>
+		<br><input type="date" id="updateWeddingHallCheckIn" name="checkIn" required><br>
 		Check-Out :
-		<br><input type="date" id="checkOut" name="checkOut" required><br>
+		<br><input type="date" id="updateWeddingHallCheckOut" name="checkOut" required><br>
 		Category :
 		<br><input type="text" id="cat" list="category" name="category" required><br>
 		<datalist id="category" name="category">
@@ -220,9 +225,9 @@ function roomShow()
 	<div style="display: none;justify-content: space-between;" id="meeting">
 		<form  action="bookMeetingHall"method="post">
 		Check-In :
-		<br><input type="date" id="checkIn" name="checkIn" required><br>
+		<br><input type="date" id="bookMeetingHallCheckIn" name="checkIn" required><br>
 		Check-Out :
-		<br><input type="date" id="checkOut" name="checkOut" required><br>
+		<br><input type="date" id="bookMeetingHallCheckOut" name="checkOut" required><br>
 		Category :
 		<br><input type="text" id="cat" list="category" name="category" required><br>
 		<datalist id="category" name="category">
@@ -246,9 +251,9 @@ function roomShow()
 			Meeting Hall Nummber :
 			<br><input type="text" id=meetingHallNumber name="meetingHallNumber" required><br>
 			Check-In :
-			<br><input type="date" id="checkIn" name="checkIn" required><br>
+			<br><input type="date" id="updateMeetingHallCheckIn" name="checkIn" required><br>
 			Check-Out :
-			<br><input type="date" id="checkOut" name="checkOut" required><br>
+			<br><input type="date" id="updateMeetingHallCheckOut" name="checkOut" required><br>
 			Category :
 			<br><input type="text" id="cat" list="category" name="category" required><br>
 			<datalist id="category" name="category">
@@ -350,4 +355,32 @@ for(int i=0;i<meetingHallList.size();i++)
 
 
 </body>
+<script type="text/javascript">
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10){
+  dd='0'+dd
+} 
+if(mm<10){
+  mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("bookRoomCheckIn").setAttribute("min", today);
+document.getElementById("bookRoomCheckOut").setAttribute("min", today);
+document.getElementById("updateRoomCheckOut").setAttribute("min", today);
+document.getElementById("updateRoomCheckIn").setAttribute("min", today);
+
+document.getElementById("bookWeddingHallCheckIn").setAttribute("min", today);
+document.getElementById("bookWeddingHallCheckOut").setAttribute("min", today);
+document.getElementById("updateWeddingHallCheckIn").setAttribute("min", today);
+document.getElementById("updateWeddingHallCheckOut").setAttribute("min", today);
+
+document.getElementById("bookMeetingHallCheckIn").setAttribute("min", today);
+document.getElementById("bookMeetingHallCheckOut").setAttribute("min", today);
+document.getElementById("updateMeetingHallCheckIn").setAttribute("min", today);
+document.getElementById("updateMeetingHallCheckOut").setAttribute("min", today);
+</script>
 </html>

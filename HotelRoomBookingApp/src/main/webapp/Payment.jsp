@@ -31,6 +31,18 @@
 	    margin: 0px;
 	}
   </style>
+  <script type="text/javascript">
+var today = new Date();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+
+if(mm<10){
+  mm='0'+mm
+} 
+
+today = mm+'-'+yyyy;
+document.getElementById("datefield").setAttribute("min", today);
+</script>
 </head>
 <body>
 <div class="container">
@@ -46,7 +58,7 @@
 			</div>
 			<div class="form-group">
 				<label>Expiry Date:</label>
-				<input type="text" id="expiryDate" name="expiryDate" pattern="[0-9]{2}[/][0-9]{2}" title="invalid date"required>
+				<input type="month" id="expiryDate" name="datefield" title="invalid date"required>
 			</div>
 			<div class="form-group">
 				<label>CVV:</label>
