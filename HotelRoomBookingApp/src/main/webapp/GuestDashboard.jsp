@@ -12,279 +12,578 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 table,td,th,tr{
 border:1px solid black;
 border-collapse: collapse;
 }
 .gestDashboard form {
-    background: aliceblue;
+    background: #ffffff;
     padding: 10px;
-    width: 31%;
+    width: 51%;
     margin-bottom: 18px;
-}
-.gestDashboard form input {
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 14px 0px #dbdbdb;
+}.gestDashboard form input {
     width: 100%;
     margin-bottom: 10px;
 }
-table th {
+table th,td {
     text-align: center;
 }
+.sideMenuItems ul {
+    padding: 0px;
+}
+.sideMenuItems ul li {
+    list-style: none;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: bold;
+    /* border-bottom: 1px solid #565656; */
+    margin-bottom: 6px;
+    color: white;
+}
+.sideMenu {
+    height: 100%;
+    /* box-shadow: 0px 0px 17px 0px #d5d5d5; */
+    border-radius: 0px;
+    padding: 20px;
+    background: black;
+}
+ul.dropdown {
+    padding-left: 15px;
+    margin-bottom: 19px;
+    box-shadow: 0px 0px 36px 0px #1c1c1c;
+    border-radius: 2px;
+    margin-top: 9px;
+}
+.sideMenuItems ul li a {
+    border-bottom: 2px solid #007bff;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin-bottom: 0px;
+    display: block;
+}
+.header {
+    padding-top: 24px;
+    background: #075fbc;
+    color: white;
+    padding-bottom: 24px;
+}
+.gestDashboard form {
+    color: black;
+    font-weight: bold;
+}
+.loginForm input {
+    margin-bottom: 11px;
+}
+.formBtn {
+    text-align: center;
+}
+.formBtn input, .formBtn button {
+    margin: 0px 0px;
+    font-size: 13px;
+    padding: 5px 15px;
+    background: #34c2df;
+    color: black;
+    border: none;
+    font-weight: bold;
+    width:100%
+}
+
 </style>
 
 </head>
 <body>
-<h3 class="text-center">Guest dashboard</h3>
+<div class="header container-fluid">
 
-
-<script type="text/javascript">
-function roomShow()
-{
-	var wedding=document.getElementById("wedding");
-	wedding.style.display="none";
-	var meeting=document.getElementById("meeting");
-	meeting.style.display="none";
-	var users=document.getElementById("booking");
-	users.style.display="none"
-	var room=document.getElementById("room");
-	room.style.display="flex";
-	
-	}
-	function weddingShow()
-	{
-		var room=document.getElementById("room");
-		room.style.display="none";
-		var meeting=document.getElementById("meeting");
-		meeting.style.display="none";
-		var users=document.getElementById("booking");
-		users.style.display="none"
-		var wedding=document.getElementById("wedding");
-		wedding.style.display="flex";
-		
-	}
-	function meetingShow()
-	{
-		var room=document.getElementById("room");
-		room.style.display="none";
-		var wedding=document.getElementById("wedding");
-		wedding.style.display="none";
-		var users=document.getElementById("booking");
-		users.style.display="none"
-		var meeting=document.getElementById("meeting");
-		meeting.style.display="flex";
-	}
-	function bookingShow()
-	{
-		var room=document.getElementById("room");
-		room.style.display="none";
-		var wedding=document.getElementById("wedding");
-		wedding.style.display="none";
-		var meeting=document.getElementById("meeting");
-		meeting.style.display="none";
-		var users=document.getElementById("booking");
-		users.style.display="flex"
-	}
-	
-	
-
-
-</script>
-
-<div class="container">
-<div class="row gestDashboard">
-	<div class="col-sm-4">
-		<a onclick="roomShow()"><h3>ROOM BOOKING</h3></a>
-		<a onclick="weddingShow()"><h3>WEDDING HALL BOOKING</h3></a>
-		<a onclick="meetingShow()"><h3>MEETING HALL BOOKING</h3></a>
-		<a onclick="bookingShow()"><h3>MY BOOKINGS</h3></a>
-		
-		<a href="logout"><h3>LOGOUT</h3></a>
-	</div>
-	<div class="col-sm-8">
-		
-<div style="display: none;justify-content: space-between;" id="room">
-	<form action="bookRoom" method="post">
-	
-		Check-In   :
-		<br><input type="date" id="bookRoomCheckIn" name="checkIn" required><br>
-		Check-Out:
-		<br><input type="date" id="bookRoomCheckOut" name="checkOut" required><br>
-		Category :
-		<br><input type="text" id="cat" list="category" name="category" required><br>
-		<datalist id="category" name="category">
-		<option value="premium">premium</option>
-		<option value="luxury">luxury</option>
-		<option value="standard">standard</option>
-		<option value="budget">budget</option>
-		</datalist>
-		Location :
-		<br><input type="text" id="loc" list="location" name="location" required><br>
-		<datalist id="location" name="location">
-		<option value="chennai">Chennai</option>
-		<option value="coimbatore">Coimbatore</option>
-		<option value="madurai">Madurai</option>
-		<option value="sivakasi">Sivakasi</option>
-		</datalist>
-		<input type="submit" value="Book Room">
-	</form>
-
-	<form action="updateRoom" method="post">
-	Room Number :
-	<br><input type="text" id=roomNumber name="roomNumber" required><br>
-	Check-In :
-	<br><input type="date" id="updateRoomCheckIn" name="checkIn" required><br>
-	Check-Out :
-	<br><input type="date" id="updateRoomCheckOut" name="checkOut" required><br>
-	Category :
-	<br><input type="text" id="cat" list="category" name="category" required><br>
-	<datalist id="category" name="category">
-	<option value="premium">premium</option>
-	<option value="luxury">luxury</option>
-	<option value="standard">standard</option>
-	<option value="budget">budget</option>
-	</datalist>
-	Location :
-	<br><input type="text" id="loc" list="location" name="location" required><br>
-	<datalist id="location" name="location">
-	<option value="chennai">Chennai</option>
-	<option value="coimbatore">Coimbatore</option>
-	<option value="madurai">Madurai</option>
-	<option value="sivakasi">Sivakasi</option>
-	</datalist>
-	<button>Update room</button>
-	</form>
-
-	<form action="cancelRoom" method="post">
-	Room Number :<input type="text" id=roomNumber name="roomNumber" required><br>
-	<button>cancel room</button>
-	</form>
+<%Guest guestObj = (Guest)session.getAttribute("currentUser");%>
+	<h3>Welcome <%= guestObj.getFirstName() %></h3>
 </div>
 
 
-<div style="display: none;justify-content: space-between;" id="wedding">
-	<form action="bookWeddingHall" method="post">
-	Check-In :
-	<br><input type="date" id="bookWeddingHallCheckIn" name="checkIn" required><br>
-	Check-Out :
-	<br><input type="date" id="bookWeddingHallCheckOut" name="checkOut" required><br>
-	Category :
-	<br><input type="text" id="cat" list="category" name="category" required><br>
-	<datalist id="category" name="category">
+
+
+<script type="text/javascript">
+function one()
+{
+	var room=document.getElementById("one");
+	room.style.display="flex";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}
+function two()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="flex";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function three()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="flex";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function four()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="flex";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function five()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="flex";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function six()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="flex";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function seven()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="flex";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function eight()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="flex";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function nine()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="flex";
+	var room=document.getElementById("ten");
+	room.style.display="none";
+}function ten()
+{
+	var room=document.getElementById("one");
+	room.style.display="none";
+	var room=document.getElementById("two");
+	room.style.display="none";
+	var room=document.getElementById("three");
+	room.style.display="none";
+	var room=document.getElementById("four");
+	room.style.display="none";
+	var room=document.getElementById("five");
+	room.style.display="none";
+	var room=document.getElementById("six");
+	room.style.display="none";
+	var room=document.getElementById("seven");
+	room.style.display="none";
+	var room=document.getElementById("eight");
+	room.style.display="none";
+	var room=document.getElementById("nine");
+	room.style.display="none";
+	var room=document.getElementById("ten");
+	room.style.display="block";
+}
+</script>
+
+<div class="container-fluid">
+<div class="row gestDashboard">
+<div class="col-sm-4 p-0">
+<div class="sideMenu">
+		<div class="sideMenuItems">
+			<ul>
+				<li><a onclick="roomShow()">ROOMS</a>
+					<ul class="dropdown">
+						<li onclick="one()">Book Room</li>
+						<li onclick="two()">Update Room</li>
+						<li onclick="three()">Cancel Room</li>
+					</ul>
+				</li>
+				<li><a onclick="weddingShow()">WEDDING HALLS </a>
+					<ul class="dropdown">
+						<li onclick="four()">Book Wedding Hall</li>
+						<li onclick="five()">Change Room</li>
+						<li onclick="six()">Cancel Room</li>
+					</ul>
+				</li>
+				<li><a onclick="meetingShow()">MEETING HALL BOOKING</a>
+					<ul class="dropdown">
+						<li onclick="seven()">New Booking</li>
+						<li onclick="eight()">Change Room</li>
+						<li onclick="nine()">Cancel Room</li>
+					</ul>
+				</li>
+				<li><a onclick="ten()">MY BOOKINGS</a></li>
+			</ul>
+			<div class="logoutbtn">
+				<a href="logout"><h3>LOGOUT</h3></a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="one">
+<div style="justify-content: space-between;width:100%">
+	<form action="bookRoom" method="post">
+		<label>Check-In   :</label>
+		<input type="date" id="bookRoomCheckIn" name="checkIn" required class="form-control">
+		<label>Check-Out:</label>
+		<input type="date" id="bookRoomCheckOut" name="checkOut" required class="form-control">
+		<label>Category :</label>
+		<input type="text" id="cat" list="category" name="category" required class="form-control">
+		<datalist id="category" name="category">
+		<option value="premium">premium</option>
+		<option value="luxury">luxury</option>
+		<option value="standard">standard</option>
+		<option value="budget">budget</option>
+		</datalist>
+		<label>Location :</label>
+		<input type="text" id="loc" list="location" name="location" required class="form-control"><br>
+		<datalist id="location" name="location" >
+		<option value="chennai">Chennai</option>
+		<option value="coimbatore">Coimbatore</option>
+		<option value="madurai">Madurai</option>
+		<option value="sivakasi">Sivakasi</option>
+		</datalist>
+		<div class="formBtn">
+			<input type="submit" value="Book Room">
+		</div>
+	</form>
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="two">
+<div style="justify-content: space-between;width:100%">
+	<form action="updateRoom" method="post">
+	<label>Room Number :</label>
+	<input type="text" id=roomNumber name="roomNumber" required class="form-control">
+	<label>Check-In :</label>
+	<input type="date" id="updateRoomCheckIn" name="checkIn" required class="form-control">
+	<label>Check-Out :</label>
+	<br><input type="date" id="updateRoomCheckOut" name="checkOut" required class="form-control">
+	<label>Category :</label>
+	<br><input type="text" id="cat" list="category" name="category" required class="form-control">
+	<datalist id="category" name="category" >
 	<option value="premium">premium</option>
 	<option value="luxury">luxury</option>
 	<option value="standard">standard</option>
 	<option value="budget">budget</option>
 	</datalist>
-	Location :
-	<br><input type="text" id="loc" list="location" name="location" required><br>
+	<label>Location :</label>
+	<br><input type="text" id="loc" list="location" name="location" required class="form-control">
 	<datalist id="location" name="location">
 	<option value="chennai">Chennai</option>
 	<option value="coimbatore">Coimbatore</option>
 	<option value="madurai">Madurai</option>
 	<option value="sivakasi">Sivakasi</option>
 	</datalist>
+	<div class="formBtn">
+		<button>Update room</button>
+	</div>
+	</form>
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="three">
+	<form action="cancelRoom" method="post">
+	<label>Room Number :</label>
+	<input type="text" id=roomNumber name="roomNumber" required class="form-control"><br>
+	<div class="formBtn">
+		<button>cancel room</button>
+	</div>
+	</form>
+</div>
+
+<div class="col-sm-8 align-items-center" style="display: none;" id="four">
+<div style="justify-content: space-between;width:100%">
+	<form action="bookWeddingHall" method="post">
+	<label>Check-In :</label>
+	<input type="date" id="bookWeddingHallCheckIn" name="checkIn" required class="form-control">
+	<label>Check-Out :</label>
+	<input type="date" id="bookWeddingHallCheckOut" name="checkOut" required class="form-control">
+	<label>Category :</label>
+	<input type="text" id="cat" list="category" name="category" required class="form-control">
+	<datalist id="category" name="category">
+	<option value="premium">premium</option>
+	<option value="luxury">luxury</option>
+	<option value="standard">standard</option>
+	<option value="budget">budget</option>
+	</datalist>
+	<label>Location :</label>
+	<input type="text" id="loc" list="location" name="location" required class="form-control">
+	<datalist id="location" name="location">
+	<option value="chennai">Chennai</option>
+	<option value="coimbatore">Coimbatore</option>
+	<option value="madurai">Madurai</option>
+	<option value="sivakasi">Sivakasi</option>
+	</datalist>
+	<div class="formBtn">
 	<input type="submit" value="Book Wedding hall">
+	</div>
 	</form>
-
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="five">
+<div style="justify-content: space-between;width:100%">
 	<form  action="updateWeddingHall" method="post">
-		Wedding Hall Number :
-		<br><input type="text" id=weddingHallNumber name="weddingHallNumber" required><br>
-		Check-In :
-		<br><input type="date" id="updateWeddingHallCheckIn" name="checkIn" required><br>
-		Check-Out :
-		<br><input type="date" id="updateWeddingHallCheckOut" name="checkOut" required><br>
-		Category :
-		<br><input type="text" id="cat" list="category" name="category" required><br>
+		<label>Wedding Hall Number :</label>
+		<input type="text" id=weddingHallNumber name="weddingHallNumber" required class="form-control">
+		<label>Check-In :</label>
+		<input type="date" id="updateWeddingHallCheckIn" name="checkIn" required class="form-control">
+		<label>Check-Out :</label>
+		<input type="date" id="updateWeddingHallCheckOut" name="checkOut" required class="form-control">
+		<label>Category :</label>
+		<br><input type="text" id="cat" list="category" name="category" required class="form-control">
 		<datalist id="category" name="category">
 		<option value="premium">premium</option>
 		<option value="luxury">luxury</option>
 		<option value="standard">standard</option>
 		<option value="budget">budget</option>
 		</datalist>
-		Location :
-		<br><input type="text" id="loc" list="location" name="location" required><br>
+		<label>Location :</label>
+		<input type="text" id="loc" list="location" name="location" required class="form-control">
 		<datalist id="location" name="location">
 		<option value="chennai">Chennai</option>
 		<option value="coimbatore">Coimbatore</option>
 		<option value="madurai">Madurai</option>
 		<option value="sivakasi">Sivakasi</option>
 		</datalist>
+		<div class="formBtn">
 		<button>Update Wedding Hall</button>
-	</form>
-
-	<form action="cancelWeddingHall" method="post">
-		Wedding Hall Number :
-		<br><input type="text" id=weddingHallNumber name="weddingHallNumber" required><br>
-		<button>cancel Wedding Hall</button>
-		</form>
 		</div>
-		
-	<div style="display: none;justify-content: space-between;" id="meeting">
+	</form>
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="six">
+<div style="justify-content: space-between;width:100%">
+	<form action="cancelWeddingHall" method="post">
+		<label>Wedding Hall Number :</label>
+		<input type="text" id=weddingHallNumber name="weddingHallNumber" required class="form-control">
+		<div class="formBtn">
+		<button>cancel Wedding Hall</button>
+		</div>
+		</form>
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="seven">
+<div style="justify-content: space-between;width:100%">
 		<form  action="bookMeetingHall"method="post">
-		Check-In :
-		<br><input type="date" id="bookMeetingHallCheckIn" name="checkIn" required><br>
-		Check-Out :
-		<br><input type="date" id="bookMeetingHallCheckOut" name="checkOut" required><br>
-		Category :
-		<br><input type="text" id="cat" list="category" name="category" required><br>
+		<label>Check-In :</label>
+		<input type="date" id="bookMeetingHallCheckIn" name="checkIn" required class="form-control">
+		<label>Check-Out :</label>
+		<input type="date" id="bookMeetingHallCheckOut" name="checkOut" required class="form-control">
+		<label>Category :</label>
+		<br><input type="text" id="cat" list="category" name="category" required class="form-control">
 		<datalist id="category" name="category">
 		<option value="premium">premium</option>
 		<option value="luxury">luxury</option>
 		<option value="standard">standard</option>
 		<option value="budget">budget</option>
 		</datalist>
-		Location :
-		<br><input type="text" id="loc" list="location" name="location" required><br>
+		<label>Location :</label>
+		<input type="text" id="loc" list="location" name="location" required class="form-control">
 		<datalist id="location" name="location">
 		<option value="chennai">Chennai</option>
 		<option value="coimbatore">Coimbatore</option>
 		<option value="madurai">Madurai</option>
 		<option value="sivakasi">Sivakasi</option>
 		</datalist>
+		<div class="formBtn">
 		<input type="submit" value="Book Meeting hall">
+		</div>
 	</form>
-
+</div>
+</div>
+<div class="col-sm-8 align-items-center" style="display: none;" id="eight">
+<div style="justify-content: space-between;width:100%">
 		<form action="updateMeetingHall" method="post">
-			Meeting Hall Nummber :
-			<br><input type="text" id=meetingHallNumber name="meetingHallNumber" required><br>
-			Check-In :
-			<br><input type="date" id="updateMeetingHallCheckIn" name="checkIn" required><br>
-			Check-Out :
-			<br><input type="date" id="updateMeetingHallCheckOut" name="checkOut" required><br>
-			Category :
-			<br><input type="text" id="cat" list="category" name="category" required><br>
+			<label>Meeting Hall Nummber :</label>
+			<input type="text" id=meetingHallNumber name="meetingHallNumber" required class="form-control">
+			<label>Check-In :</label>
+			<br><input type="date" id="updateMeetingHallCheckIn" name="checkIn" required class="form-control">
+			<label>Check-Out :</label>
+			<input type="date" id="updateMeetingHallCheckOut" name="checkOut" required class="form-control">
+			<label>Category :</label>
+			<br><input type="text" id="cat" list="category" name="category" required class="form-control">
 			<datalist id="category" name="category">
 			<option value="premium">premium</option>
 			<option value="luxury">luxury</option>
 			<option value="standard">standard</option>
 			<option value="budget">budget</option>
 			</datalist>
-			Location :
-			<br><input type="text" id="loc" list="location" name="location" required><br>
+			<label>Location :</label>
+			<input type="text" id="loc" list="location" name="location" required class="form-control">
 			<datalist id="location" name="location">
 			<option value="chennai">Chennai</option>
 			<option value="coimbatore">Coimbatore</option>
 			<option value="madurai">Madurai</option>
 			<option value="sivakasi">Sivakasi</option>
 			</datalist>
+			<div class="formBtn">
 			<button>Update Meeting Hall</button>
-			</form>
-			
-			<form action="cancelMeetingHall" method="post">
-				Meeting Hall Number :<br>
-				<input type="text" id=meetingHallNumber name="meetingHallNumber" required><br>
-			<button>cancel Meeting Hall</button>
+			</div>
 			</form>
 		</div>
-
-
-
-
-<div style="display: none;" id="booking">
-<table cellpadding=2px cellspacing=20px width="100%">
+	</div>
+	<div class="col-sm-8 align-items-center" style="display: none;" id="nine">
+<div style="justify-content: space-between;width:100%">
+			<form action="cancelMeetingHall" method="post">
+				<label>Meeting Hall Number :</label>
+				<input type="text" id=meetingHallNumber name="meetingHallNumber" required class="form-control">
+				<div class="formBtn">
+			<button>cancel Meeting Hall</button>
+			</div>
+			</form>
+		</div>
+</div>
+<div class="col-sm-8 align-items-center mt-3" style="display: none;" id="ten">
+<div style="justify-content: space-between;width:100%">
+<table cellpadding=2px cellspacing=20px width="100%" class="myBooking">
 <tr>
 <th>Room Number</th>
 <th>CheckIn Date</th>
@@ -293,7 +592,8 @@ function roomShow()
 <th>Location</th>
 </tr>
 
-<%Guest guestObj = (Guest)session.getAttribute("currentUser");
+<%
+
 
 RoomTransactionDaoImpl roomTransDaoImpl = new RoomTransactionDaoImpl();
 List<RoomTransaction> roomList = roomTransDaoImpl.showRoomBooking(guestObj);
@@ -348,12 +648,9 @@ for(int i=0;i<meetingHallList.size();i++)
 <%}%>
 </table>
 </div>
-	</div>
 </div>
 </div>
-
-
-
+</div>
 </body>
 <script type="text/javascript">
 var today = new Date();
