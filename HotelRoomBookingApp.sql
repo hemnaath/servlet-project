@@ -135,6 +135,6 @@ drop table payment_details;
 
 
 commit;
-delete from wedding_hall_details where wedding_hall_number=2004;
+
 insert into wedding_hall_details(wedding_hall_number,category,location,price) values(2004,'premium','chennai',8000);
 update meeting_hall_details set category='premium',location='coimbatore',price=1000 where meeting_hall_number=3004;

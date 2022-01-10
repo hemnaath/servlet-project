@@ -1,3 +1,8 @@
+<%@page import="com.hotelroombooking.model.Guest"%>
+<%@page import="com.hotelroombooking.model.RoomTransaction"%>
+<%@page import="com.hotelroombooking.model.MeetingHallDetails"%>
+<%@page import="com.hotelroombooking.model.WeddingHallDetails"%>
+<%@page import="com.hotelroombooking.model.RoomDetails"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -31,18 +36,7 @@
 	    margin: 0px;
 	}
   </style>
-  <script type="text/javascript">
-var today = new Date();
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
 
-if(mm<10){
-  mm='0'+mm
-} 
-
-today = mm+'-'+yyyy;
-document.getElementById("datefield").setAttribute("min", today);
-</script>
 </head>
 <body>
 <div class="container">
@@ -54,23 +48,43 @@ document.getElementById("datefield").setAttribute("min", today);
 		<form action="payment" method="post">
 			<div class="form-group">
 				<label>Card Number:</label>
-				<input type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{16}" title="invalid card number"required>
+				<input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" pattern="[0-9]{16}" title="invalid card number"required>
 			</div>
 			<div class="form-group">
 				<label>Expiry Date:</label>
-				<input type="month" id="expiryDate" name="datefield" title="invalid date"required>
+				<input type="text" id="expiryDate" name="expiryDate" placeholder="mm-yyyy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
 			</div>
 			<div class="form-group">
 				<label>CVV:</label>
-				<input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" title="invalid cvv"required>
+				<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
 			</div>
 			<div class="formBtn">
-				<button>Pay Now</button>
+				<button class="btn btn-primary">Pay Now</button>
 			</div>
 		</form>
 	</div>
 </div>
 </div>
 </div>
+<%
+
+
+Guest guestObj=(Guest)session.getAttribute("currentUser");
+RoomTransaction roomTransObj1=(RoomTransaction)session.getAttribute("bookRoomDetails");
+
+
+%>
+
+<%=roomTransObj1.getroomNumber()%>
+<%=roomTransObj1.getCategory()%>
+<%=roomTransObj1.getLocation()%>
+<%=roomTransObj1.getCheckIn() %>
+<%=roomTransObj1.getCheckOut() %>
+
+
+
+
+
+
 </body>
 </html>

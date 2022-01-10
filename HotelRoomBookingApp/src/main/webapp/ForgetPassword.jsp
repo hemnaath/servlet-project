@@ -95,7 +95,7 @@
 				atleast one UPPER CASE, LOWER CASE, NUMBER" required>
 					</div>
 					<div class="formBtn mt-4">
-					 	<input type="submit" value="CHANGE PASSWORD" class="btn btn-success">
+					 	<input type="submit" value="CHANGE PASSWORD" onmousedown="return passwordValidation()"class="btn btn-success">
 					 </div>
 				</form>
 			</div>
@@ -107,4 +107,20 @@
 
 
 </body>
+<script type="text/javascript">
+function passwordValidation()
+{
+	var password=document.getElementById("password").value;
+	var cPassword=document.getElementById("confirmPassword").value;
+	if(password==cPassword)
+	{
+		return true;
+	}
+	else
+	{
+		alert("Password Mismatch");
+	}
+}
+</script>
+
 </html>

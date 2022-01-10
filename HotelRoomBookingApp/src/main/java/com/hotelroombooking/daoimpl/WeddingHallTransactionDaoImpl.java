@@ -106,7 +106,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 		
 		if(flag)
 		{
-			System.out.println("Weddings Hall booked");
+//			System.out.println("Weddings Hall booked");
 			pstmt3.executeUpdate();
 			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookWeddingHallMail(weddingHallTransObj));
 

@@ -42,6 +42,7 @@ table th,td {
     list-style: none;
     line-hupdateMeetingHall: 1.5;
     font-size: 15px;
+    cursor: pointer;
     font-wupdateMeetingHall: bold;
     /* border-bottom: 1px solid #565656; */
     margin-bottom: 6px;
@@ -131,6 +132,7 @@ function bookRoom()
 	room.style.display="none";
 	var room=document.getElementById("myBookings");
 	room.style.display="none";
+	
 }
 function updateRoom()
 {
@@ -308,7 +310,7 @@ function updateRoom()
 	room.style.display="flex";
 	var room=document.getElementById("myBookings");
 	room.style.display="none";
-}function ten()
+}function myBookings()
 {
 	var room=document.getElementById("bookRoom");
 	room.style.display="none";

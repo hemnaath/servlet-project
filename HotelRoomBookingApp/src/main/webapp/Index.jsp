@@ -48,10 +48,14 @@
     color: red;
 }
   </style>
-  
 </head>
 <body>
-
+<%
+if(session.getAttribute("invalidLogin")!=null){
+%><script type="text/javascript">
+alert("Invalid Login");
+</script>
+<%} %>
 <div class="loginPage">
 	<div class="container">
 		<div class="row justify-content-center">			
@@ -78,9 +82,6 @@
 						 	<div class="text-center forget">
 						 		<a href="ForgetPassword.jsp"><label>Forget Password</label></a>
 						 	</div>
-						 	
-						 	
-						 	
 						</form>
 					</div>
 				</div>

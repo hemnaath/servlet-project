@@ -63,14 +63,18 @@ public class Index extends HttpServlet {
 		}
 		else if(adminObj!=null)
 		{
+//			HttpSession session=request.getSession();
+//			session.setAttribute("currentUser",adminObj);
+			
 			response.sendRedirect("AdminDashboard.jsp");
 		}
-		
 		else
 		{
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("invalidLogin", "invalid");
 			response.sendRedirect("Index.jsp");
 		}
-		
 		
 		
 	}

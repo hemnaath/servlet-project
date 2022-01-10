@@ -156,6 +156,7 @@ public class GuestDaoImpl  implements GuestDao{
 //		System.out.println(guestObj.getPassword());
 		
 		flag = pstmt.executeUpdate()>0;
+		pstmt.executeUpdate("commit");
 		if(flag)
 		{
 			System.out.println("Password changed successfully");

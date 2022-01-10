@@ -79,11 +79,11 @@
 					<form action="register" method="post">
 						<div class="form-group">
 						<label>Firstname :</label>
-						<input type="text" id="firstName" name="firstName"class="register-firstname" pattern="[A-Za-z]+" title="Invalid Name" placeholder="Firstname" required>
+						<input type="text" id="firstName" name="firstName"class="register-firstname" pattern="[A-Z][A-Za-z]+" title="first letter must be capital" placeholder="Firstname" required>
 						</div>
 						<div class="form-group">
 						<label>Lastname :</label>
-						<input type="text" id="lastName" name="lastName"class="register-lastname" placeholder="Lastname"pattern="[A-Za-z]+" title="Invalid Name"required><br>
+						<input type="text" id="lastName" name="lastName"class="register-lastname" placeholder="Lastname"pattern="[A-Z][A-Za-z]+" title="Invalid Name"required><br>
 						</div>
 						<div class="form-group">
 						<label>Email :</label>
@@ -101,7 +101,7 @@
 						</div>
 						<div class="form-group">
 						<label>Phone Number :</label>
-						<input type="text" id="phoneNumber" name="phoneNumber"class="register-phonenumber" placeholder="Phone Number" pattern="[0-9]{10}" title="Invalid phone number" required><br>
+						<input type="text" id="phoneNumber" name="phoneNumber"class="register-phonenumber" onkeydown="passwordValidation()" placeholder="Phone Number" pattern="[0-9]{10}" title="Invalid phone number" required><br>
 						</div>
 						<div class="formBtn">
 							<input type="submit" value="REGISTER" class="register-register">
@@ -116,4 +116,19 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+function passwordValidation()
+{
+	var password=document.getElementById("password").value;
+	var cPassword=document.getElementById("confirmPassword").value;
+	if(password==cPassword)
+	{
+		return true;
+	}
+	else
+	{
+		alert("Password Mismatch");
+	}
+}
+</script>
 </html>
