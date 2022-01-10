@@ -48,6 +48,7 @@
     color: red;
 }
   </style>
+  
 </head>
 <body>
 
@@ -77,6 +78,9 @@
 						 	<div class="text-center forget">
 						 		<a href="ForgetPassword.jsp"><label>Forget Password</label></a>
 						 	</div>
+						 	
+						 	
+						 	
 						</form>
 					</div>
 				</div>

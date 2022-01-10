@@ -36,15 +36,15 @@ table th,td {
 }
 .sideMenuItems ul li {
     list-style: none;
-    line-height: 1.5;
+    line-heditMeetingHall: 1.5;
     font-size: 15px;
-    font-weight: bold;
+    font-weditMeetingHall: bold;
     /* border-bottom: 1px solid #565656; */
     margin-bottom: 6px;
     color: white;
 }
 .sideMenu {
-    height: 100%;
+    heditMeetingHall: 100%;
     /* box-shadow: 0px 0px 17px 0px #d5d5d5; */
     border-radius: 0px;
     padding: 20px;
@@ -72,7 +72,7 @@ ul.dropdown {
 }
 .gestDashboard form {
     color: black;
-    font-weight: bold;
+    font-weditMeetingHall: bold;
 }
 .loginForm input {
     margin-bottom: 11px;
@@ -87,7 +87,7 @@ ul.dropdown {
     background: #34c2df;
     color: black;
     border: none;
-    font-weight: bold;
+    font-weditMeetingHall: bold;
     width:100%
 }
 
@@ -101,224 +101,224 @@ ul.dropdown {
 <script type="text/javascript">
 function one()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="flex";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
 }
-function two()
+function editRoom()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="flex";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function three()
+}function deleteRoom()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="flex";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function four()
+}function addWeddingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="flex";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function five()
+}function editWeddingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="flex";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function six()
+}function cancelWeddingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="flex";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function seven()
+}function addMeetingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="flex";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function eight()
+}function editMeetingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="flex";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function nine()
+}function cancelMeetingHall()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="flex";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="none";
-}function ten()
+}function listAll()
 {
-	var room=document.getElementById("one");
+	var room=document.getElementById("addRoom");
 	room.style.display="none";
-	var room=document.getElementById("two");
+	var room=document.getElementById("editRoom");
 	room.style.display="none";
-	var room=document.getElementById("three");
+	var room=document.getElementById("deleteRoom");
 	room.style.display="none";
-	var room=document.getElementById("four");
+	var room=document.getElementById("addWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("five");
+	var room=document.getElementById("editWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("six");
+	var room=document.getElementById("cancelWeddingHall");
 	room.style.display="none";
-	var room=document.getElementById("seven");
+	var room=document.getElementById("addMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("eight");
+	var room=document.getElementById("editMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("nine");
+	var room=document.getElementById("cancelMeetingHall");
 	room.style.display="none";
-	var room=document.getElementById("ten");
+	var room=document.getElementById("listAll");
 	room.style.display="block";
 }
 </script>
@@ -328,28 +328,28 @@ function two()
 <div class="sideMenu">
 		<div class="sideMenuItems">
 			<ul>
-				<li><a onclick="roomShow()">ROOM BOOKING</a>
+				<li><a onclick="roomShow()">ROOMS</a>
 					<ul class="dropdown">
-						<li onclick="one()">New Booking</li>
-						<li onclick="two()">Change Room</li>
-						<li onclick="three()">Cancel Room</li>
+						<li onclick="addRoom()">Add Rooms</li>
+						<li onclick="editRoom()">Edit Rooms</li>
+						<li onclick="deleteRoom()">Delete Room</li>
 					</ul>
 				</li>
-				<li><a onclick="weddingShow()">WEDDING HALL BOOKING</a>
+				<li><a onclick="weddingShow()">WEDDING HALLS</a>
 					<ul class="dropdown">
-						<li onclick="four()">New Booking</li>
-						<li onclick="five()">Change Room</li>
-						<li onclick="six()">Cancel Room</li>
+						<li onclick="addWeddingHall()">Add Wedding Hall</li>
+						<li onclick="editWeddingHall()">Edit Wedding Hall</li>
+						<li onclick="cancelWeddingHall()">Delete Wedding Hall</li>
 					</ul>
 				</li>
-				<li><a onclick="meetingShow()">MEETING HALL BOOKING</a>
+				<li><a onclick="meetingShow()">MEETING HALLS</a>
 					<ul class="dropdown">
-						<li onclick="seven()">New Booking</li>
-						<li onclick="eight()">Change Room</li>
-						<li onclick="nine()">Cancel Room</li>
+						<li onclick="addMeetingHall()">Add Meeting Hall</li>
+						<li onclick="editMeetingHall()">Edit Meeting Hall</li>
+						<li onclick="cancelMeetingHall()">Delete Meeting Hall</li>
 					</ul>
 				</li>
-				<li><a onclick="ten()">MY BOOKINGS</a></li>
+				<li><a onclick="ten()">LIST ALL USERS8</a></li>
 			</ul>
 			<div class="logoutbtn">
 				<a href="logout"><h3>LOGOUT</h3></a>
@@ -358,7 +358,7 @@ function two()
 		
 	</div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="one">
+<div class="col-sm-8 align-items-center" style="display: none;" id="addRoom">
 <div style="justify-content: space-between;width:100%">
 <form action="addRoom" method="post">
 <label>room number:</label>
@@ -387,7 +387,7 @@ function two()
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="two">
+<div class="col-sm-8 align-items-center" style="display: none;" id="editRoom">
 <div style="justify-content: space-between;width:100%">
 <form action="editRoom" method="post">
 <label>room number:</label>
@@ -416,7 +416,7 @@ function two()
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="three">
+<div class="col-sm-8 align-items-center" style="display: none;" id="deleteRoom">
 <div style="justify-content: space-between;width:100%">
 <form action="deleteRoom" method="post">
 room number:<input type="text" id="roomNumber"name="roomNumber" class="form-control" required>
@@ -427,7 +427,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </div>
 </div>
 
-<div class="col-sm-8 align-items-center" style="display: none;" id="four">
+<div class="col-sm-8 align-items-center" style="display: none;" id="addWeddingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="addWeddingHall" method="post">
 <label>wedding hall number:</label>
@@ -456,7 +456,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="five">
+<div class="col-sm-8 align-items-center" style="display: none;" id="editWeddingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="editWeddingHall" method="post">
 <label>wedding hall number:</label>
@@ -485,7 +485,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="six">
+<div class="col-sm-8 align-items-center" style="display: none;" id="cancelWeddingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="deleteWeddingHall" method="post">
 <label>wedding hall number:</label>
@@ -497,7 +497,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </div>
 </div>
 
-<div class="col-sm-8 align-items-center" style="display: none;" id="seven">
+<div class="col-sm-8 align-items-center" style="display: none;" id="addMeetingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="addMeetingHall" method="post">
 <label>meeting hall number:</label>
@@ -526,7 +526,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="eight">
+<div class="col-sm-8 align-items-center" style="display: none;" id="editMeetingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="editMeetingHall" method="post">
 <label>meeting hall number:</label>
@@ -555,7 +555,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
-<div class="col-sm-8 align-items-center" style="display: none;" id="nine">
+<div class="col-sm-8 align-items-center" style="display: none;" id="cancelMeetingHall">
 <div style="justify-content: space-between;width:100%">
 <form action="deleteMeetingHall" method="post">
 <label>meeting hall number:</label>
@@ -570,7 +570,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 
 
 
-<div class="col-sm-8 align-items-center mt-3" style="display: none;" id="ten">
+<div class="col-sm-8 align-items-center mt-3" style="display: none;" id="listAll">
 <div style="justify-content: space-between;width:100%">
 <table cellpadding=2px cellspacing=20px width="100%">
 <tr>

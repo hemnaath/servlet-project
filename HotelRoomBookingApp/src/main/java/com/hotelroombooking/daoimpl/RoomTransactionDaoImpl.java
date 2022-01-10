@@ -41,7 +41,7 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 //		checkOut = sdf.parse(sc.nextLine());
 //		if(checkIn.after(checkOut))
 //		{
-//			System.out.println("Invalid Date Format");
+//			.println("Invalid Date Format");
 //			dateFlag=false;
 //		}
 //		else
@@ -73,20 +73,20 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 		pstmt1.setString(2, roomTransObj.getLocation());
 		
 		ResultSet rs = pstmt1.executeQuery();
-		System.out.println("hlo");
+//		System.out.println("hlo");
 		
-		System.out.println(roomTransObj.getCategory());
-		System.out.println(roomTransObj.getLocation());
+//		System.out.println(roomTransObj.getCategory());
+//		System.out.println(roomTransObj.getLocation());
 		
 //		RoomTransaction roomTransObj = null;
 		if(rs.next())
 		{
 			flag=true;
 			vacantRoomNumber=rs.getInt(1);
-			System.out.println(vacantRoomNumber);
+//			System.out.println(vacantRoomNumber);
 			//roomTransObj= new RoomTransaction(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
 		}
- System.out.println(vacantRoomNumber);
+// System.out.println(vacantRoomNumber);
 		PreparedStatement pstmt2 = conn.prepareStatement(bookRoomQuery);
 		PreparedStatement pstmt3 = conn.prepareStatement(updateBookRoomQuery);
 		
@@ -110,18 +110,18 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 //		roomTransObj= new RoomTransaction(vacantRoomNumber,String.valueOf(checkIn),String.valueOf(checkOut),roomTransObj.getCategory(),roomTransObj.getLocation());
 		
 		flag = pstmt2.executeUpdate()>0;
-		System.out.println("hloo");
+//		System.out.println("hloo");
 		if(flag)
 		{
-			System.out.println("Room booked");
+//			System.out.println("Room booked");
 			pstmt3.executeUpdate();
-			System.out.println("hlooo");
+//			System.out.println("hlooo");
 			
 			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookRoomMail(roomTransObj));
 		}
 		else
 		{
-			System.out.println("Error in room booking");
+//			System.out.println("Error in room booking");
 		}
 		}
 		catch(Exception e)
@@ -159,7 +159,7 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 		flag=pstmt.executeUpdate()>0;
 		if(flag)
 		{
-			System.out.println("Booking Cancelled");
+//			System.out.println("Booking Cancelled");
 			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.cancelRoomMail(roomTransObj));
 
 		}

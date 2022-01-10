@@ -65,10 +65,12 @@ public class Index extends HttpServlet {
 		{
 			response.sendRedirect("AdminDashboard.jsp");
 		}
+		
 		else
 		{
-			pw.write("Invalid login");
+			response.sendRedirect("Index.jsp");
 		}
+		
 		
 		
 	}

@@ -102,7 +102,7 @@ email varchar2(100) unique,
 password varchar2(100) not null
 );
 
-insert into admin(email,password) values('admin@tstays.com','web123');
+insert into admin(email,password) values('admin@tstays.com','Web123');
 
 
 
@@ -115,12 +115,23 @@ select * from wedding_hall_transaction;
 select * from meeting_hall_transaction;
 select * from admin;
 select * from payment_details;
-desc payment_details;
 
 truncate table room_transaction;
 truncate table wedding_hall_transaction;
 truncate table meeting_hall_transaction;
 truncate table payment_details;
+
+drop table guest_details CASCADE CONSTRAINTS;
+drop table room_details;
+drop table wedding_hall_details;
+drop table meeting_hall_details;
+drop table room_transaction;
+drop table wedding_hall_transaction;
+drop table meeting_hall_transaction;
+drop table admin;
+drop table payment_details;
+
+
 
 
 commit;
