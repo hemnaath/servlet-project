@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Dashboard</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -349,7 +349,7 @@ function editRoom()
 						<li onclick="cancelMeetingHall()">Delete Meeting Hall</li>
 					</ul>
 				</li>
-				<li><a onclick="ten()">LIST ALL USERS8</a></li>
+				<li><a onclick="listAll()">LIST ALL USERS</a></li>
 			</ul>
 			<div class="logoutbtn">
 				<a href="logout"><h3>LOGOUT</h3></a>

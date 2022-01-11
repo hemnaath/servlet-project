@@ -479,7 +479,51 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 
 
 	
+	public int findBookMeetingPrice(HttpSession session)
+	{
+		int price=0;
+		try {
+			MeetingHallTransaction meetingHallTransObj=(MeetingHallTransaction)session.getAttribute("bookMeetingHallDetails");
+//			System.out.println(weddingHallTransObj.getCategory());
+		String findPriceQuery = "select price from meeting_hall_details where category='"+meetingHallTransObj.getCategory()+"'";
+//		System.out.println(weddingHallTransObj.getCategory());
+		Connection conn = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=conn.prepareStatement(findPriceQuery);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+		return rs.getInt(1);
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
+	
+	
+	public int findUpdateMeetingPrice(HttpSession session)
+	{
+		int price=0;
+		try {
+			MeetingHallTransaction meetingHallTransObj=(MeetingHallTransaction)session.getAttribute("updateMeetingHallDetails");
+//			System.out.println(weddingHallTransObj.getCategory());
+		String findPriceQuery = "select price from meeting_hall_details where category='"+meetingHallTransObj.getCategory()+"'";
+//		System.out.println(weddingHallTransObj.getCategory());
+		Connection conn = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=conn.prepareStatement(findPriceQuery);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+		return rs.getInt(1);
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 	
 	

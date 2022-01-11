@@ -1,3 +1,6 @@
+<%@page import="com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl"%>
+<%@page import="com.hotelroombooking.model.WeddingHallTransaction"%>
+<%@page import="com.hotelroombooking.daoimpl.RoomTransactionDaoImpl"%>
 <%@page import="com.hotelroombooking.model.Guest"%>
 <%@page import="com.hotelroombooking.model.RoomTransaction"%>
 <%@page import="com.hotelroombooking.model.MeetingHallDetails"%>
@@ -9,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Payment</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -69,17 +72,24 @@
 <%
 
 
-Guest guestObj=(Guest)session.getAttribute("currentUser");
-RoomTransaction roomTransObj1=(RoomTransaction)session.getAttribute("bookRoomDetails");
+
+WeddingHallTransaction weddingHallTransObj1=(WeddingHallTransaction)session.getAttribute("bookWeddingHallDetails");
+WeddingHallTransactionDaoImpl weddingHallTransObj = new WeddingHallTransactionDaoImpl();
+int price = weddingHallTransObj.findBookWeddingPrice(session);
+
+
+
+
 
 
 %>
+<%=weddingHallTransObj1.getroomNumber() %>
+<%=weddingHallTransObj1.getCheckIn() %>
+<%=weddingHallTransObj1.getCheckOut() %>
+<%=weddingHallTransObj1.getCategory()%>
+<%=weddingHallTransObj1.getLocation() %>
+<%=price %>
 
-<%=roomTransObj1.getroomNumber()%>
-<%=roomTransObj1.getCategory()%>
-<%=roomTransObj1.getLocation()%>
-<%=roomTransObj1.getCheckIn() %>
-<%=roomTransObj1.getCheckOut() %>
 
 
 

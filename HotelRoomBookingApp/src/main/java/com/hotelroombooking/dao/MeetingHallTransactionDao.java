@@ -16,4 +16,6 @@ public interface MeetingHallTransactionDao
 	public boolean addMeetingHallAdmin(HttpSession session);
 	public boolean deleteMeetingHallAdmin(HttpSession session) ;
 	public boolean updateMeetingHallAdmin(HttpSession session) ;
+	public int findBookMeetingPrice(HttpSession session);
+	public int findUpdateMeetingPrice(HttpSession session);
 }

@@ -57,7 +57,7 @@ public class updateRoom extends HttpServlet {
 		session.setAttribute("updateRoomDetails", roomTransObj);
 		boolean flag=roomTransDaoObj.updateRoom(session);
 		
-		response.sendRedirect("Payment.jsp");
+		response.sendRedirect("UpdateRoomPayment.jsp");
 		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");

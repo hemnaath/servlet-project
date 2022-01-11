@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Guest Dashboard</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -348,7 +348,7 @@ function updateRoom()
 						<li onclick="cancelRoom()">Cancel Room</li>
 					</ul>
 				</li>
-				<li><a onclick="weddingShow()">WEDDING HALLS </a>
+				<li><a onclick="weddingShow()">WEDDING HALLS</a>
 					<ul class="dropdown">
 						<li onclick="bookWeddingHall()">Book Wedding Hall</li>
 						<li onclick="updateWeddingHall()">Update Wedding Hall</li>
@@ -436,7 +436,7 @@ function updateRoom()
 	<label>Room Number :</label>
 	<input type="text" id=roomNumber name="roomNumber" required class="form-control"><br>
 	<div class="formBtn">
-		<button>cancel room</button>
+		<button>Cancel room</button>
 	</div>
 	</form>
 </div>

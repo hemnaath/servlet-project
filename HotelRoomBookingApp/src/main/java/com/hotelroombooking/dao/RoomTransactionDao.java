@@ -16,4 +16,6 @@ public interface RoomTransactionDao
 	public boolean addRoomAdmin(HttpSession session);
 	public boolean deleteRoomAdmin(HttpSession session);
 	public boolean updateRoomAdmin(HttpSession session);
+	public int findBookRoomPrice(HttpSession session);
+	public int findUpdateRoomPrice(HttpSession session);
 }

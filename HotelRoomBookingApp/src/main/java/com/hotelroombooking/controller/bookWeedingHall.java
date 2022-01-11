@@ -56,7 +56,7 @@ public class bookWeedingHall extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("bookWeddingHallDetails", weddingHallTransObj);
 		boolean flag=weddingHallTransDaoObj.bookWeddingHall(session);
-		response.sendRedirect("Payment.jsp");
+		response.sendRedirect("BookWeddingHallPayment.jsp");
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		

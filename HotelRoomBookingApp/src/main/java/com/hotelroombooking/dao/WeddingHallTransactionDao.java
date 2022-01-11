@@ -16,4 +16,6 @@ public interface WeddingHallTransactionDao
 	public boolean addWeddingHallAdmin(HttpSession session);
 	public boolean deleteWeddingHallAdmin(HttpSession session);
 	public boolean updateWeddingHallAdmin(HttpSession session);
+	public int findUpdateWeddingPrice(HttpSession session);
+	public int findBookWeddingPrice(HttpSession session);
 }

@@ -1,5 +1,6 @@
 package com.hotelroombooking.model;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Payment 
@@ -7,12 +8,18 @@ public class Payment
 	private int id;
 	private long cardNumber;
 	private Guest guestId;
+	
+	
 	public Payment(int id, long cardNumber, Guest guestId) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
 		this.guestId = guestId;
 	}
+	
+	
+	
+	
 	public Payment() {
 		super();
 		// TODO Auto-generated constructor stub

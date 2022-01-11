@@ -468,6 +468,52 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 
 
 
+	
+	
+	public int findBookRoomPrice(HttpSession session)
+	{
+		int price=0;
+		try {
+		RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("bookRoomDetails");
+		String findPriceQuery = "select price from room_details where category='"+roomTransObj.getCategory()+"'";
+		System.out.println(roomTransObj.getCategory());
+		Connection conn = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=conn.prepareStatement(findPriceQuery);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+		return rs.getInt(1);
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	
+	
+	
+	public int findUpdateRoomPrice(HttpSession session)
+	{
+		int price=0;
+		try {
+		RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("updateRoomDetails");
+		String findPriceQuery = "select price from room_details where category='"+roomTransObj.getCategory()+"'";
+		System.out.println(roomTransObj.getCategory());
+		Connection conn = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=conn.prepareStatement(findPriceQuery);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+		return rs.getInt(1);
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 
 	

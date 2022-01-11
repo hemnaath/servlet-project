@@ -105,7 +105,6 @@ password varchar2(100) not null
 insert into admin(email,password) values('admin@tstays.com','Web123');
 
 
-
 select * from guest_details;
 select * from room_details;
 select * from wedding_hall_details;
@@ -135,6 +134,14 @@ drop table payment_details;
 
 
 commit;
+
+
+select meeting_hall_details.meeting_hall_number,meeting_hall_details.category,meeting_hall_details.location,meeting_hall_details.price,
+meeting_hall_transaction.check_in,meeting_hall_transaction.check_out
+from meeting_hall_details inner join meeting_hall_transaction ON 
+meeting_hall_details.meeting_hall_number=meeting_hall_transaction.meeting_hall_number 
+where meeting_hall_details.status='occupied';
+
 
 insert into wedding_hall_details(wedding_hall_number,category,location,price) values(2004,'premium','chennai',8000);
 update meeting_hall_details set category='premium',location='coimbatore',price=1000 where meeting_hall_number=3004;
