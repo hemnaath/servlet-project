@@ -17,7 +17,7 @@ public class Mail
 	public static String cancelRoomMail(RoomTransaction roomTransObj)
 	{
 		String message="Welcome HR Residensy"+"\nYour Booking is Cancelled"+"\nRoom Number :"+roomTransObj.getroomNumber()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 	
@@ -26,7 +26,7 @@ public class Mail
 		String message="Welcome HR Residensy"+"\nYour Booking is Updated"+"\nRoom Number :"+roomTransObj.getroomNumber()
 		+"\nCheck-In :"+roomTransObj.getCheckIn()+"\nCheck-Out :"+roomTransObj.getCheckOut()+"\nCategory :"+roomTransObj.getCategory()+
 		"\nLocation :"+roomTransObj.getLocation()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 	
@@ -44,7 +44,7 @@ public class Mail
 	public static String cancelWeddingHallMail(WeddingHallTransaction weddingHallTransObj)
 	{
 		String message="Welcome HR Residensy"+"\nYour Booking is Cancelled"+"\nWedding Hall Number :"+weddingHallTransObj.getroomNumber()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 	
@@ -53,7 +53,7 @@ public class Mail
 		String message="Welcome HR Residensy"+"\nYour Booking is Updated"+"\nWedding Hall Number :"+weddingHallTransObj.getroomNumber()
 		+"\nCheck-In :"+weddingHallTransObj.getCheckIn()+"\nCheck-Out :"+weddingHallTransObj.getCheckOut()+"\nCategory :"+weddingHallTransObj.getCategory()+
 		"\nLocation :"+weddingHallTransObj.getLocation()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 	
@@ -74,7 +74,7 @@ public class Mail
 	public static String cancelMeetingHallMail(MeetingHallTransaction meetingHallTransObj)
 	{
 		String message="Welcome HR Residensy"+"\nYour Booking is Cancelled"+"\nMeeting Hall Number :"+meetingHallTransObj.getroomNumber()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 	
@@ -83,7 +83,7 @@ public class Mail
 		String message="Welcome HR Residensy"+"\nYour Booking is Updated"+"\nWedding Hall Number :"+meetingHallTransObj.getroomNumber()
 		+"\nCheck-In :"+meetingHallTransObj.getCheckIn()+"\nCheck-Out :"+meetingHallTransObj.getCheckOut()+"\nCategory :"+meetingHallTransObj.getCategory()+
 		"\nLocation :"+meetingHallTransObj.getLocation()+"\nYour amount"
-				+ "will be credited back in 24 hrs.";
+				+ " will be credited back in 24 hrs.";
 		return message;
 	}
 }

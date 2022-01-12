@@ -36,6 +36,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    
     background-image: url(./assets/login_background.jpeg);
         opacity: .8;
 }
