@@ -16,10 +16,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <style>
 	 .registerForm {
-	    box-shadow: 0px 0px 14px 0px #d9d9d9;
-	    padding: 10px;
-	    margin: 20% auto;
-	}
+    width: 900px;
+    box-shadow: 0px 0px 14px 0px #d9d9d9;
+    padding: 10px;
+    margin: 7% auto;
+    height: 421px;
+}
 	.formBtn {
 	    text-align: center;
 	}
@@ -36,58 +38,69 @@
 	    display: block;
 	    margin: 0px;
 	}
-  </style>
+	.formcontent input {
+    padding: 7px;
+    margin-bottom: 10px;
+}
+
+.formcontent label {
+    margin: 5px 0px;
+}
+.formcontent {
+    padding: 16px;
+}
+.verticalRule label {
+    margin-bottom: 40px;
+}
+
+.verticalRule {
+    border-right: 1px solid;
+    height: 100%;
+    vertical-align: middle;
+    padding: 11% 10px;
+}
+	</style>
 
 </head>
 <body>
-<div class="container">
-	<div class="row">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
-	<div class="registerForm">
-	<h3 class="text-center">PAYMENT PORTAL</h3>
-		<form action="payment" method="post">
-			<div class="form-group">
-				<label>Card Number:</label>
-				<input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" pattern="[0-9]{16}" title="invalid card number"required>
-			</div>
-			<div class="form-group">
-				<label>Expiry Date:</label>
-				<input type="text" id="expiryDate" name="expiryDate" placeholder="mm-yyyy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
-			</div>
-			<div class="form-group">
-				<label>CVV:</label>
-				<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
-			</div>
-			<div class="formBtn">
-				<button class="btn btn-primary">Pay Now</button>
-			</div>
-		</form>
-	</div>
-</div>
-</div>
-</div>
 <%
-
-
-
 RoomTransaction roomTransObj1=(RoomTransaction)session.getAttribute("updateRoomDetails");
 RoomTransactionDaoImpl roomTransObj = new RoomTransactionDaoImpl();
 int price = roomTransObj.findUpdateRoomPrice(session);
-
-
-
-
-
-
 %>
-<%=roomTransObj1.getroomNumber() %>
-<%=roomTransObj1.getCheckIn() %>
-<%=roomTransObj1.getCheckOut() %>
-<%=roomTransObj1.getCategory()%>
-<%=roomTransObj1.getLocation() %>
-<%=price %>
 
+<div class="registerForm row">	
+
+<div class="col-sm-6 row verticalRule">
+
+<div class="col-sm-12"><label>Room Number :</label><%=roomTransObj1.getroomNumber() %></div>
+<div class="col-sm-6">
+<label>Check-In Date :</label><%=roomTransObj1.getCheckIn() %></div>
+<div class="col-sm-6">
+<label>Check-Out Date</label><%=roomTransObj1.getCheckOut() %></div>
+<div class="col-sm-6">
+<label>Category :</label><%=roomTransObj1.getCategory()%></div>
+<div class="col-sm-6">
+<label>Location :</label><%=roomTransObj1.getLocation() %></div>
+<div class="col-sm-12">
+<label>Price :</label><%=price %></div>
+</div>
+
+<div class="col-sm-6">
+<div class="formcontent">
+	<h3 class="text-center">PAYMENT PORTAL</h3>
+	<form action="payment" method="post">
+		<label>Card Number:</label>
+		<input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" pattern="[0-9]{16}" title="invalid card number"required>
+		<label>Expiry Date:</label>
+		<input type="text" id="expiryDate" name="expiryDate" placeholder="mm/yy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
+		<label>CVV:</label>
+		<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
+		<button class="btn btn-primary">Pay Now</button>
+	</form>
+	</div>
+	</div>
+</div>
 
 
 

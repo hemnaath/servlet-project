@@ -54,6 +54,7 @@ table th,td {
     border-radius: 0px;
     padding: 20px;
     background: black;
+   
 }
 ul.dropdown {
     padding-left: 15px;
@@ -584,7 +585,7 @@ function updateRoom()
 		</div>
 </div>
 <div class="col-sm-8 align-items-center mt-3" style="display: none;" id="myBookings">
-<div style="justify-content: space-between;width:100%">
+<div style="justify-content: space-between;width:100%;height: 80vh;overflow: auto;">
 <table cellpadding=2px cellspacing=20px width="100%" class="myBooking">
 <tr>
 <th>Room Number</th>
