@@ -58,10 +58,10 @@
 }
 
 .verticalRule {
-    border-right: 1px solid;
+    border-right: 1px solid #d9d9d9;
     height: 100%;
     vertical-align: middle;
-    padding: 11% 10px;
+    padding: 11% 0px;
 }
 	</style>
 
@@ -81,7 +81,7 @@ int price = meetingHallTransObj.findUpdateMeetingPrice(session);
 <div class="col-sm-6">
 <label>Check-In Date :</label><%=meetingHallTransObj1.getCheckIn() %></div>
 <div class="col-sm-6">
-<label>Check-Out Date</label><%=meetingHallTransObj1.getCheckOut() %></div>
+<label>Check-Out Date :</label><%=meetingHallTransObj1.getCheckOut() %></div>
 <div class="col-sm-6">
 <label>Category :</label><%=meetingHallTransObj1.getCategory()%></div>
 <div class="col-sm-6">
