@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.MeetingHallTransactionDaoImpl;
 import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.model.MeetingHallTransaction;
+import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
 import com.hotelroombooking.model.RoomTransaction;
+import com.hotelroombooking.model.WeddingHallTransaction;
 
 /**
- * Servlet implementation class bookMeetingHall
+ * Servlet implementation class bookWeedingHall
  */
-@WebServlet("/bookMeetingHall")
-public class bookMeetingHall extends HttpServlet {
+@WebServlet("/bookWeddingHall")
+public class BookWeedingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public bookMeetingHall() {
+    public BookWeedingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,26 +46,21 @@ public class bookMeetingHall extends HttpServlet {
 		
 		
 		
-		
 		String checkIn = request.getParameter("checkIn");
 		String checkOut = request.getParameter("checkOut");
 		String category = request.getParameter("category");
 		String location = request.getParameter("location");
 		
-		MeetingHallTransaction meetingHallTransObj = new MeetingHallTransaction(0,checkIn,checkOut,category,location);
-		MeetingHallTransactionDaoImpl meetingHallTransDaoObj = new MeetingHallTransactionDaoImpl();
+		WeddingHallTransaction weddingHallTransObj = new WeddingHallTransaction(0,checkIn,checkOut,category,location);
+		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("bookMeetingHallDetails", meetingHallTransObj);
-		meetingHallTransDaoObj.bookMeetingHall(session);
-		response.sendRedirect("BookMeetingHallPayment.jsp");
+		session.setAttribute("bookWeddingHallDetails", weddingHallTransObj);
+		boolean flag=weddingHallTransDaoObj.bookWeddingHall(session);
+		response.sendRedirect("BookWeddingHallPayment.jsp");
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
-//		if(flag)
-//		{
-//		  
-//			response.sendRedirect("Payment.jsp");
-//		}
+		
 		
 //		doGet(request, response);
 	}

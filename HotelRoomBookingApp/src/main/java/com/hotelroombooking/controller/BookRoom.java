@@ -11,21 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.RoomDetails;
-import com.hotelroombooking.model.WeddingHallDetails;
+import com.hotelroombooking.model.Guest;
+import com.hotelroombooking.model.RoomTransaction;
 
 /**
- * Servlet implementation class editWeddingHall
+ * Servlet implementation class bookRoom
  */
-@WebServlet("/editWeddingHall")
-public class editWeddingHall extends HttpServlet {
+@WebServlet("/BookRoom")
+public class BookRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public editWeddingHall() {
+    public BookRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +34,7 @@ public class editWeddingHall extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -45,29 +44,19 @@ public class editWeddingHall extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		
-		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
 		String category = request.getParameter("category");
 		String location = request.getParameter("location");
-		int price = Integer.parseInt(request.getParameter("price"));
 		
-		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails(weddingHallNumber,null,category,location,price);
-		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
+		RoomTransaction roomTransObj = new RoomTransaction(0,checkIn,checkOut,category,location);
+		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("editWeddingHallDetails", weddingHallDetailsObj);
-		boolean flag = weddingHallTransDaoObj.updateWeddingHallAdmin(session);
-//		PrintWriter pw = response.getWriter();
-//		pw.write(flag+"");
+		session.setAttribute("bookRoomDetails", roomTransObj);
+		roomTransDaoObj.bookRoom(session);
 		
-		
-		if(flag)
-		{
-		  
-			response.sendRedirect("AdminDashboard.jsp");
-		}
-		
-		
-//		doGet(request, response);
+		response.sendRedirect("BookRoomPayment.jsp");
+
 	}
 
 }

@@ -12,20 +12,20 @@ import javax.servlet.http.HttpSession;
 
 import com.hotelroombooking.daoimpl.MeetingHallTransactionDaoImpl;
 import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.MeetingHallTransaction;
-import com.hotelroombooking.model.WeddingHallTransaction;
+import com.hotelroombooking.model.MeetingHallDetails;
+import com.hotelroombooking.model.WeddingHallDetails;
 
 /**
- * Servlet implementation class updateMeetingHall
+ * Servlet implementation class deleteMeetingHall
  */
-@WebServlet("/updateMeetingHall")
-public class updateMeetingHall extends HttpServlet {
+@WebServlet("/deleteMeetingHall")
+public class DeleteMeetingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateMeetingHall() {
+    public DeleteMeetingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,23 +47,21 @@ public class updateMeetingHall extends HttpServlet {
 		
 		
 		int meetingHallNumber = Integer.parseInt(request.getParameter("meetingHallNumber"));
-		String checkIn = request.getParameter("checkIn");
-		String checkOut = request.getParameter("checkOut");
-		String category = request.getParameter("category");
-		String location = request.getParameter("location");
 		
-		MeetingHallTransaction meetingHallTransObj = new MeetingHallTransaction(meetingHallNumber,checkIn,checkOut,category,location);
+		MeetingHallDetails meetingHallDetailsObj = new MeetingHallDetails(meetingHallNumber,null,null,null,0);
 		MeetingHallTransactionDaoImpl meetingHallTransDaoObj = new MeetingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("updateMeetingHallDetails", meetingHallTransObj);
-		boolean flag=meetingHallTransDaoObj.updateMeetingHall(session);
-		
-		response.sendRedirect("UpdateMeetingHallPayment.jsp");
-		
+		session.setAttribute("deleteMeetingHallDetails", meetingHallDetailsObj);
+		boolean flag = meetingHallTransDaoObj.deleteMeetingHallAdmin(session);
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
 		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

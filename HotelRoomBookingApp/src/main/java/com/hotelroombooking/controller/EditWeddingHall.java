@@ -16,16 +16,16 @@ import com.hotelroombooking.model.RoomDetails;
 import com.hotelroombooking.model.WeddingHallDetails;
 
 /**
- * Servlet implementation class deleteWeddingHall
+ * Servlet implementation class editWeddingHall
  */
-@WebServlet("/deleteWeddingHall")
-public class deleteWeddingHall extends HttpServlet {
+@WebServlet("/editWeddingHall")
+public class EditWeddingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteWeddingHall() {
+    public EditWeddingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,17 +46,19 @@ public class deleteWeddingHall extends HttpServlet {
 		
 		
 		
-		
 		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
+		String category = request.getParameter("category");
+		String location = request.getParameter("location");
+		int price = Integer.parseInt(request.getParameter("price"));
 		
-		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails(weddingHallNumber,null,null,null,0);
+		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails(weddingHallNumber,null,category,location,price);
 		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("deleteWeddingHallDetails", weddingHallDetailsObj);
-		boolean flag = weddingHallTransDaoObj.deleteWeddingHallAdmin(session);
+		session.setAttribute("editWeddingHallDetails", weddingHallDetailsObj);
+		boolean flag = weddingHallTransDaoObj.updateWeddingHallAdmin(session);
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
-
+		
 		
 		if(flag)
 		{

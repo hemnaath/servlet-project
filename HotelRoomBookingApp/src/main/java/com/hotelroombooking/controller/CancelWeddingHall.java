@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
+import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
 import com.hotelroombooking.model.RoomTransaction;
+import com.hotelroombooking.model.WeddingHallTransaction;
 
 /**
- * Servlet implementation class cancelRoom
+ * Servlet implementation class cancelWeddingHall
  */
-@WebServlet("/cancelRoom")
-public class cancelRoom extends HttpServlet {
+@WebServlet("/cancelWeddingHall")
+public class CancelWeddingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public cancelRoom() {
+    public CancelWeddingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,13 +45,14 @@ public class cancelRoom extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
 		
-		RoomTransaction roomTransObj = new RoomTransaction(roomNumber,null,null,null,null);
-		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
+		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
+		
+		WeddingHallTransaction weddingHallTransObj = new WeddingHallTransaction(weddingHallNumber,null,null,null,null);
+		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("cancelRoomDetails", roomTransObj);
-		boolean flag=roomTransDaoObj.cancelRoom(session);
+		session.setAttribute("cancelWeddingHallDetails", weddingHallTransObj);
+		boolean flag=weddingHallTransDaoObj.cancelWeddingHall(session);
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
@@ -57,7 +60,6 @@ public class cancelRoom extends HttpServlet {
 		{
 			response.sendRedirect("GuestDashboard.jsp");
 		}
-
 		
 		
 //		doGet(request, response);

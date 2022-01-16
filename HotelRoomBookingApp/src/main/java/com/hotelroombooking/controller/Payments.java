@@ -10,22 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.MeetingHallTransactionDaoImpl;
-import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.MeetingHallDetails;
-import com.hotelroombooking.model.WeddingHallDetails;
+import com.hotelroombooking.daoimpl.PaymentDaoImpl;
+import com.hotelroombooking.model.Payment;
 
 /**
- * Servlet implementation class editMeetingHall
+ * Servlet implementation class payment
  */
-@WebServlet("/editMeetingHall")
-public class editMeetingHall extends HttpServlet {
+@WebServlet("/payment")
+public class Payments extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public editMeetingHall() {
+    public Payments() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,25 +44,23 @@ public class editMeetingHall extends HttpServlet {
 		
 		
 		
-		int meetingHallNumber = Integer.parseInt(request.getParameter("meetingHallNumber"));
-		String category = request.getParameter("category");
-		String location = request.getParameter("location");
-		int price = Integer.parseInt(request.getParameter("price"));
+		long cardNumber = Long.parseLong(request.getParameter("cardNumber"));
 		
-		MeetingHallDetails meetingHallDetailsObj = new MeetingHallDetails(meetingHallNumber,null,category,location,price);
-		MeetingHallTransactionDaoImpl meetingHallTransDaoObj = new MeetingHallTransactionDaoImpl();
+		Payment paymentObj = new Payment(0,cardNumber,null);
+		PaymentDaoImpl paymentDaoObj = new PaymentDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("editMeetingHallDetails", meetingHallDetailsObj);
-		boolean flag = meetingHallTransDaoObj.updateMeetingHallAdmin(session);
+		session.setAttribute("payment", paymentObj);
+		boolean flag = paymentDaoObj.payment(session);
+		
+		if(flag)
+		{
+			response.sendRedirect("GuestDashboard.jsp");
+		}
+		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
 		
-		if(flag)
-		{
-		  
-			response.sendRedirect("AdminDashboard.jsp");
-		}
 		
 		
 //		doGet(request, response);

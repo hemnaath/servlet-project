@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.PaymentDaoImpl;
-import com.hotelroombooking.model.Payment;
+import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
+import com.hotelroombooking.model.RoomTransaction;
 
 /**
- * Servlet implementation class payment
+ * Servlet implementation class cancelRoom
  */
-@WebServlet("/payment")
-public class payment extends HttpServlet {
+@WebServlet("/cancelRoom")
+public class CancelRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public payment() {
+    public CancelRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,24 +43,21 @@ public class payment extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
+		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
 		
-		long cardNumber = Long.parseLong(request.getParameter("cardNumber"));
-		
-		Payment paymentObj = new Payment(0,cardNumber,null);
-		PaymentDaoImpl paymentDaoObj = new PaymentDaoImpl();
+		RoomTransaction roomTransObj = new RoomTransaction(roomNumber,null,null,null,null);
+		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("payment", paymentObj);
-		boolean flag = paymentDaoObj.payment(session);
+		session.setAttribute("cancelRoomDetails", roomTransObj);
+		boolean flag=roomTransDaoObj.cancelRoom(session);
+//		PrintWriter pw = response.getWriter();
+//		pw.write(flag+"");
 		
 		if(flag)
 		{
 			response.sendRedirect("GuestDashboard.jsp");
 		}
-		
-//		PrintWriter pw = response.getWriter();
-//		pw.write(flag+"");
-		
-		
+
 		
 		
 //		doGet(request, response);

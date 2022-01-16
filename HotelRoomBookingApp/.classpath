@@ -25,25 +25,9 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/hemn2911/Downloads/activation.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/hemn2911/Downloads/mail.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/hemn2911/Downloads/smtp-1.4.4.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/hemn2911/Downloads/ojdbc11-full/ojdbc11-full/ojdbc11.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc11.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/smtp-1.4.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

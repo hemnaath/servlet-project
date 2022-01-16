@@ -10,23 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.WeddingHallDetails;
+import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
+import com.hotelroombooking.model.RoomDetails;
 
 /**
- * Servlet implementation class addWeddingHall
+ * Servlet implementation class editRoom
  */
-@WebServlet("/addWeddingHall")
-public class addWeddingHall extends HttpServlet {
+@WebServlet("/editRoom")
+public class EditRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addWeddingHall() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+   
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,20 +41,16 @@ public class addWeddingHall extends HttpServlet {
 		
 		
 		
-		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
-		System.out.println(weddingHallNumber);
+		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
 		String category = request.getParameter("category");
-		System.out.println(category);
 		String location = request.getParameter("location");
-		System.out.println(location);
 		int price = Integer.parseInt(request.getParameter("price"));
-		System.out.println(price);
 		
-		WeddingHallDetails weddingHallDetailsObj = new WeddingHallDetails(weddingHallNumber,null,category,location,price);
-		WeddingHallTransactionDaoImpl weddingHallTransDao = new WeddingHallTransactionDaoImpl();
+		RoomDetails roomDetailsObj = new RoomDetails(roomNumber,null,category,location,price);
+		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("addWeddingHallDetails", weddingHallDetailsObj);
-		boolean flag = weddingHallTransDao.addWeddingHallAdmin(session);
+		session.setAttribute("editRoomDetails", roomDetailsObj);
+		boolean flag = roomTransDaoObj.updateRoomAdmin(session);
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
@@ -67,6 +60,7 @@ public class addWeddingHall extends HttpServlet {
 		  
 			response.sendRedirect("AdminDashboard.jsp");
 		}
+		
 		
 		
 //		doGet(request, response);

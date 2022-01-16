@@ -11,20 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.WeddingHallTransaction;
+import com.hotelroombooking.model.RoomDetails;
 
 /**
- * Servlet implementation class updateweddingHall
+ * Servlet implementation class deleteRoom
  */
-@WebServlet("/updateWeddingHall")
-public class updateweddingHall extends HttpServlet {
+@WebServlet("/deleteRoom")
+public class DeleteRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateweddingHall() {
+    public DeleteRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,25 +44,22 @@ public class updateweddingHall extends HttpServlet {
 		
 		
 		
+		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
 		
-		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
-		String checkIn = request.getParameter("checkIn");
-		String checkOut = request.getParameter("checkOut");
-		String category = request.getParameter("category");
-		String location = request.getParameter("location");
-		
-		WeddingHallTransaction weddingHallTransObj = new WeddingHallTransaction(weddingHallNumber,checkIn,checkOut,category,location);
-		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
+		RoomDetails roomDetailsObj = new RoomDetails(roomNumber,null,null,null,0);
+		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("updateWeddingHallDetails", weddingHallTransObj);
-		boolean flag=weddingHallTransDaoObj.updateWeddingHall(session);
-		
-		response.sendRedirect("UpdateWeddingHallPayment.jsp");
-		
+		session.setAttribute("deleteRoomDetails", roomDetailsObj);
+		boolean flag = roomTransDaoObj.deleteRoomAdmin(session);
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
+
 		
-		
+		if(flag)
+		{
+		  
+			response.sendRedirect("AdminDashboard.jsp");
+		}
 		
 		
 //		doGet(request, response);

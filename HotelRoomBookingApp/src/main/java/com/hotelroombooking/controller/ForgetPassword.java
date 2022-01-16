@@ -1,8 +1,6 @@
 package com.hotelroombooking.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,20 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.model.RoomTransaction;
+import com.hotelroombooking.daoimpl.GuestDaoImpl;
+import com.hotelroombooking.model.Guest;
 
 /**
- * Servlet implementation class updateRoom
+ * Servlet implementation class forgetPassword
  */
-@WebServlet("/updateRoom")
-public class updateRoom extends HttpServlet {
+@WebServlet("/forgetpassword")
+public class ForgetPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateRoom() {
+    public ForgetPassword() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,24 +41,24 @@ public class updateRoom extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		
-		
-		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
-		String checkIn = request.getParameter("checkIn");
-		String checkOut = request.getParameter("checkOut");
-		String category = request.getParameter("category");
-		String location = request.getParameter("location");
-		
-		RoomTransaction roomTransObj = new RoomTransaction(roomNumber,checkIn,checkOut,category,location);
-		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
+		Guest guestObj = new Guest(null,null,email,password,0);
+		GuestDaoImpl guestDaoObj = new GuestDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("updateRoomDetails", roomTransObj);
-		boolean flag=roomTransDaoObj.updateRoom(session);
+		session.setAttribute("forgetPassword", guestObj);
+		boolean flag = guestDaoObj.forgetPassword(session);
 		
-		response.sendRedirect("UpdateRoomPayment.jsp");
 		
-//		PrintWriter pw = response.getWriter();
-//		pw.write(flag+"");
+		if(flag)
+		{
+			response.sendRedirect("Index.jsp");
+		}
+		
+		
+		
+		
 		
 		
 		

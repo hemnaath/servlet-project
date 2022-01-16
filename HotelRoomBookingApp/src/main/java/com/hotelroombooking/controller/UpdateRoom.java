@@ -11,19 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
-import com.hotelroombooking.model.RoomDetails;
+import com.hotelroombooking.model.RoomTransaction;
 
 /**
- * Servlet implementation class editRoom
+ * Servlet implementation class updateRoom
  */
-@WebServlet("/editRoom")
-public class editRoom extends HttpServlet {
+@WebServlet("/updateRoom")
+public class UpdateRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-   
+    public UpdateRoom() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,25 +44,23 @@ public class editRoom extends HttpServlet {
 		
 		
 		
+		
 		int roomNumber = Integer.parseInt(request.getParameter("roomNumber"));
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
 		String category = request.getParameter("category");
 		String location = request.getParameter("location");
-		int price = Integer.parseInt(request.getParameter("price"));
 		
-		RoomDetails roomDetailsObj = new RoomDetails(roomNumber,null,category,location,price);
+		RoomTransaction roomTransObj = new RoomTransaction(roomNumber,checkIn,checkOut,category,location);
 		RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("editRoomDetails", roomDetailsObj);
-		boolean flag = roomTransDaoObj.updateRoomAdmin(session);
+		session.setAttribute("updateRoomDetails", roomTransObj);
+		boolean flag=roomTransDaoObj.updateRoom(session);
+		
+		response.sendRedirect("UpdateRoomPayment.jsp");
+		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
-		
-		
-		if(flag)
-		{
-		  
-			response.sendRedirect("AdminDashboard.jsp");
-		}
 		
 		
 		

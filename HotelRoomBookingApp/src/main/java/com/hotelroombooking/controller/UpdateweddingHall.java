@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hotelroombooking.daoimpl.MeetingHallTransactionDaoImpl;
+import com.hotelroombooking.daoimpl.RoomTransactionDaoImpl;
 import com.hotelroombooking.daoimpl.WeddingHallTransactionDaoImpl;
-import com.hotelroombooking.model.MeetingHallDetails;
-import com.hotelroombooking.model.WeddingHallDetails;
+import com.hotelroombooking.model.WeddingHallTransaction;
 
 /**
- * Servlet implementation class deleteMeetingHall
+ * Servlet implementation class updateweddingHall
  */
-@WebServlet("/deleteMeetingHall")
-public class deleteMeetingHall extends HttpServlet {
+@WebServlet("/updateWeddingHall")
+public class UpdateweddingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteMeetingHall() {
+    public UpdateweddingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,22 +45,25 @@ public class deleteMeetingHall extends HttpServlet {
 		
 		
 		
-		int meetingHallNumber = Integer.parseInt(request.getParameter("meetingHallNumber"));
 		
-		MeetingHallDetails meetingHallDetailsObj = new MeetingHallDetails(meetingHallNumber,null,null,null,0);
-		MeetingHallTransactionDaoImpl meetingHallTransDaoObj = new MeetingHallTransactionDaoImpl();
+		int weddingHallNumber = Integer.parseInt(request.getParameter("weddingHallNumber"));
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
+		String category = request.getParameter("category");
+		String location = request.getParameter("location");
+		
+		WeddingHallTransaction weddingHallTransObj = new WeddingHallTransaction(weddingHallNumber,checkIn,checkOut,category,location);
+		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
-		session.setAttribute("deleteMeetingHallDetails", meetingHallDetailsObj);
-		boolean flag = meetingHallTransDaoObj.deleteMeetingHallAdmin(session);
+		session.setAttribute("updateWeddingHallDetails", weddingHallTransObj);
+		boolean flag=weddingHallTransDaoObj.updateWeddingHall(session);
+		
+		response.sendRedirect("UpdateWeddingHallPayment.jsp");
+		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
 		
 		
-		if(flag)
-		{
-		  
-			response.sendRedirect("AdminDashboard.jsp");
-		}
 		
 		
 //		doGet(request, response);

@@ -374,7 +374,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="bookRoom">
 <div style="justify-content: space-between;width:100%">
-	<form action="bookRoom" method="post">
+	<form action="BookRoom" method="post">
 		<label>Check-In   :</label>
 		<input type="date" id="bookRoomCheckIn" name="checkIn" required class="form-control">
 		<label>Check-Out:</label>
