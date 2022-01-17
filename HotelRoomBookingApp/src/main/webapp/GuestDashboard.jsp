@@ -403,7 +403,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="updateRoom">
 <div style="justify-content: space-between;width:100%">
-	<form action="updateRoom" method="post">
+	<form action="UpdateRoom" method="post">
 	<label>Room Number :</label>
 	<input type="text" id=roomNumber name="roomNumber" required class="form-control">
 	<label>Check-In :</label>
@@ -433,7 +433,7 @@ function updateRoom()
 </div>
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="cancelRoom">
-	<form action="cancelRoom" method="post">
+	<form action="CancelRoom" method="post">
 	<label>Room Number :</label>
 	<input type="text" id=roomNumber name="roomNumber" required class="form-control"><br>
 	<div class="formBtn">
@@ -444,7 +444,7 @@ function updateRoom()
 
 <div class="col-sm-8 align-items-center" style="display: none;" id="bookWeddingHall">
 <div style="justify-content: space-between;width:100%">
-	<form action="bookWeddingHall" method="post">
+	<form action="BookWeddingHall" method="post">
 	<label>Check-In :</label>
 	<input type="date" id="bookWeddingHallCheckIn" name="checkIn" required class="form-control">
 	<label>Check-Out :</label>
@@ -473,7 +473,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="updateWeddingHall">
 <div style="justify-content: space-between;width:100%">
-	<form  action="updateWeddingHall" method="post">
+	<form  action="UpdateWeddingHall" method="post">
 		<label>Wedding Hall Number :</label>
 		<input type="text" id=weddingHallNumber name="weddingHallNumber" required class="form-control">
 		<label>Check-In :</label>
@@ -504,7 +504,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="cancelWeddingHall">
 <div style="justify-content: space-between;width:100%">
-	<form action="cancelWeddingHall" method="post">
+	<form action="CancelWeddingHall" method="post">
 		<label>Wedding Hall Number :</label>
 		<input type="text" id=weddingHallNumber name="weddingHallNumber" required class="form-control">
 		<div class="formBtn">
@@ -515,7 +515,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="bookMeetingHall">
 <div style="justify-content: space-between;width:100%">
-		<form  action="bookMeetingHall"method="post">
+		<form  action="BookMeetingHall"method="post">
 		<label>Check-In :</label>
 		<input type="date" id="bookMeetingHallCheckIn" name="checkIn" required class="form-control">
 		<label>Check-Out :</label>
@@ -544,7 +544,7 @@ function updateRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="updateMeetingHall">
 <div style="justify-content: space-between;width:100%">
-		<form action="updateMeetingHall" method="post">
+		<form action="UpdateMeetingHall" method="post">
 			<label>Meeting Hall Nummber :</label>
 			<input type="text" id=meetingHallNumber name="meetingHallNumber" required class="form-control">
 			<label>Check-In :</label>
@@ -575,7 +575,7 @@ function updateRoom()
 	</div>
 	<div class="col-sm-8 align-items-center" style="display: none;" id="cancelMeetingHall">
 <div style="justify-content: space-between;width:100%">
-			<form action="cancelMeetingHall" method="post">
+			<form action="CancelMeetingHall" method="post">
 				<label>Meeting Hall Number :</label>
 				<input type="text" id=meetingHallNumber name="meetingHallNumber" required class="form-control">
 				<div class="formBtn">

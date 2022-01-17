@@ -360,7 +360,7 @@ function editRoom()
 </div>
 <div class="col-sm-8 align-items-center" style="display: none;" id="addRoom">
 <div style="justify-content: space-between;width:100%">
-<form action="addRoom" method="post">
+<form action="AddRoom" method="post">
 <label>room number:</label>
 <input type="text" id="roomNumber"name="roomNumber" class="form-control" required>
 <label>Category :</label>
@@ -387,9 +387,10 @@ function editRoom()
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="editRoom">
 <div style="justify-content: space-between;width:100%">
-<form action="editRoom" method="post">
+<form action="EditRoom" method="post">
 <label>room number:</label>
 <input type="text" id="roomNumber"name="roomNumber" class="form-control" required>
 <label>Category :</label>
@@ -416,9 +417,10 @@ function editRoom()
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="deleteRoom">
 <div style="justify-content: space-between;width:100%">
-<form action="deleteRoom" method="post">
+<form action="DeleteRoom" method="post">
 room number:<input type="text" id="roomNumber"name="roomNumber" class="form-control" required>
 <div class="formBtn">
 <button>Delete room</button>
@@ -429,7 +431,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 
 <div class="col-sm-8 align-items-center" style="display: none;" id="addWeddingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="addWeddingHall" method="post">
+<form action="AddWeddingHall" method="post">
 <label>wedding hall number:</label>
 <input type="text" id=weddingHallNumber name="weddingHallNumber" class="form-control" required>
 <label>Category :</label>
@@ -456,9 +458,10 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="editWeddingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="editWeddingHall" method="post">
+<form action="EditWeddingHall" method="post">
 <label>wedding hall number:</label>
 <input type="text" id=weddingHallNumber name="weddingHallNumber" class="form-control" required>
 <label>Category :</label>
@@ -485,9 +488,10 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="cancelWeddingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="deleteWeddingHall" method="post">
+<form action="DeleteWeddingHall" method="post">
 <label>wedding hall number:</label>
 <input type="text" id=weddingHallNumber name="weddingHallNumber" class="form-control" required>
 <div class="formBtn">
@@ -499,7 +503,7 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 
 <div class="col-sm-8 align-items-center" style="display: none;" id="addMeetingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="addMeetingHall" method="post">
+<form action="AddMeetingHall" method="post">
 <label>meeting hall number:</label>
 <input type="text" id=meetingHallNumber name="meetingHallNumber" class="form-control" required>
 <label>Category :</label>
@@ -526,9 +530,10 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="editMeetingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="editMeetingHall" method="post">
+<form action="EditMeetingHall" method="post">
 <label>meeting hall number:</label>
 <input type="text" id=meetingHallNumber name="meetingHallNumber" class="form-control" required>
 <label>Category :</label>
@@ -555,9 +560,10 @@ room number:<input type="text" id="roomNumber"name="roomNumber" class="form-cont
 </form>
 </div>
 </div>
+
 <div class="col-sm-8 align-items-center" style="display: none;" id="cancelMeetingHall">
 <div style="justify-content: space-between;width:100%">
-<form action="deleteMeetingHall" method="post">
+<form action="DeleteMeetingHall" method="post">
 <label>meeting hall number:</label>
 <input type="text" id=meetingHallNumber name="meetingHallNumber" class="form-control" required>
 <div class="formBtn">
