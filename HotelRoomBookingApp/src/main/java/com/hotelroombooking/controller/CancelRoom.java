@@ -16,7 +16,7 @@ import com.hotelroombooking.model.RoomTransaction;
 /**
  * Servlet implementation class cancelRoom
  */
-@WebServlet("/cancelRoom")
+@WebServlet("/CancelRoom")
 public class CancelRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

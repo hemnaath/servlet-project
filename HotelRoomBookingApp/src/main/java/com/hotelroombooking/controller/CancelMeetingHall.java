@@ -18,7 +18,7 @@ import com.hotelroombooking.model.WeddingHallTransaction;
 /**
  * Servlet implementation class cancelMeetingHall
  */
-@WebServlet("/cancelMeetingHall")
+@WebServlet("/CancelMeetingHall")
 public class CancelMeetingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

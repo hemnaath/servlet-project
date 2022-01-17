@@ -99,7 +99,7 @@ ul.dropdown {
 </div>
 
 <script type="text/javascript">
-function one()
+function addRoom()
 {
 	var room=document.getElementById("addRoom");
 	room.style.display="flex";
@@ -352,7 +352,7 @@ function editRoom()
 				<li><a onclick="listAll()">LIST ALL USERS</a></li>
 			</ul>
 			<div class="logoutbtn">
-				<a href="logout"><h3>LOGOUT</h3></a>
+				<a href="Logout"><h3>LOGOUT</h3></a>
 			</div>
 		</div>
 		

@@ -366,7 +366,7 @@ function updateRoom()
 				<li><a onclick="myBookings()">MY BOOKINGS</a></li>
 			</ul>
 			<div class="logoutbtn">
-				<a href="logout"><h3>LOGOUT</h3></a>
+				<a href="Logout"><h3>LOGOUT</h3></a>
 			</div>
 		</div>
 		
