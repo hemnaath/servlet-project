@@ -8,13 +8,13 @@ public class Payment
 	private int id;
 	private long cardNumber;
 	private String expiryDate;
-	private int cvv;
+	private String cvv;
 	private Guest guestId;
-	public Payment(int id, long cardNumber, String month, int cvv, Guest guestId) {
+	public Payment(int id, long cardNumber, String expiryDate, String cvv, Guest guestId) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
-		this.expiryDate = month;
+		this.expiryDate = expiryDate;
 		this.cvv = cvv;
 		this.guestId = guestId;
 	}
@@ -24,12 +24,12 @@ public class Payment
 	}
 	@Override
 	public String toString() {
-		return "Payment [id=" + id + ", cardNumber=" + cardNumber + ", expiryDate=" + expiryDate + ", cvv=" + cvv + ", guestId="
-				+ guestId + "]";
+		return "Payment [id=" + id + ", cardNumber=" + cardNumber + ", expiryDate=" + expiryDate + ", cvv=" + cvv
+				+ ", guestId=" + guestId + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cardNumber, cvv, guestId, id, expiryDate);
+		return Objects.hash(cardNumber, cvv, expiryDate, guestId, id);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -40,8 +40,9 @@ public class Payment
 		if (getClass() != obj.getClass())
 			return false;
 		Payment other = (Payment) obj;
-		return cardNumber == other.cardNumber && cvv == other.cvv && Objects.equals(guestId, other.guestId)
-				&& id == other.id && Objects.equals(expiryDate, other.expiryDate);
+		return cardNumber == other.cardNumber && Objects.equals(cvv, other.cvv)
+				&& Objects.equals(expiryDate, other.expiryDate) && Objects.equals(guestId, other.guestId)
+				&& id == other.id;
 	}
 	public int getId() {
 		return id;
@@ -55,16 +56,16 @@ public class Payment
 	public void setCardNumber(long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-	public String getMonth() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
-	public void setMonth(String month) {
-		this.expiryDate = month;
+	public void setExpiryDate(String expiryDate) {
+		this.expiryDate = expiryDate;
 	}
-	public int getCvv() {
+	public String getCvv() {
 		return cvv;
 	}
-	public void setCvv(int cvv) {
+	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
 	public Guest getGuestId() {
@@ -73,8 +74,6 @@ public class Payment
 	public void setGuestId(Guest guestId) {
 		this.guestId = guestId;
 	}
-	
-	
 	
 	
 }

@@ -18,13 +18,13 @@ import com.hotelroombooking.model.WeddingHallTransaction;
  * Servlet implementation class updateweddingHall
  */
 @WebServlet("/UpdateWeddingHall")
-public class UpdateweddingHall extends HttpServlet {
+public class UpdateWeddingHall extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateweddingHall() {
+    public UpdateWeddingHall() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -56,9 +56,18 @@ public class UpdateweddingHall extends HttpServlet {
 		WeddingHallTransactionDaoImpl weddingHallTransDaoObj = new WeddingHallTransactionDaoImpl();
 		HttpSession session = request.getSession();
 		session.setAttribute("updateWeddingHallDetails", weddingHallTransObj);
-		boolean flag=weddingHallTransDaoObj.updateWeddingHall(session);
+		weddingHallTransDaoObj.updateWeddingHall(session);
+		
+		
+		
+		if(session.getAttribute("noWeddingHallsToUpdate")!=null) {
+			response.sendRedirect("GuestDashboard.jsp");
+			
+		}
+		else {
 		
 		response.sendRedirect("UpdateWeddingHallPayment.jsp");
+		}
 		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");

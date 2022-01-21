@@ -118,6 +118,38 @@ alert("No Rooms Availble");
 </script>
 <%} %>
 
+<%
+if(session.getAttribute("NoWeddingHallToBook")!=null){
+%><script type="text/javascript">
+alert("No Wedding Hall Availble");
+<% session.removeAttribute("NoWeddingHallToBook"); %>
+</script>
+<%} %>
+
+<%
+if(session.getAttribute("noWeddingHallsToUpdate")!=null){
+%><script type="text/javascript">
+alert("No Wedding Hall Availble");
+<% session.removeAttribute("noWeddingHallsToUpdate"); %>
+</script>
+<%} %>
+
+<%
+if(session.getAttribute("noMeetingHallToBook")!=null){
+%><script type="text/javascript">
+alert("No Meeting Hall Availble");
+<% session.removeAttribute("noMeetingHallToBook"); %>
+</script>
+<%} %>
+
+<%
+if(session.getAttribute("noMeetingHallToUpdate")!=null){
+%><script type="text/javascript">
+alert("No Wedding Hall Availble");
+<% session.removeAttribute("noMeetingHallToUpdate"); %>
+</script>
+<%} %>
+
 
 
 

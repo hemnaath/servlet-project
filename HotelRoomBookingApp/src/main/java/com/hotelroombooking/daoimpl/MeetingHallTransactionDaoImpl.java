@@ -81,6 +81,10 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 			vacantMeetingRoomNumber=rs.getInt(1);
 		}
 		
+		
+		if(vacantMeetingRoomNumber!=0) {
+		
+		
 		PreparedStatement pstmt2 = conn.prepareStatement(bookMeetingRoomQuery);
 		PreparedStatement pstmt3 = conn.prepareStatement(updateBookMeetingRoomQuery);
 		
@@ -116,6 +120,10 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		else
 		{
 			System.out.println("Error in booking");
+		}
+		}
+		else {
+			session.setAttribute("noMeetingHallToBook","noMeetingHall");
 		}
 		}
 		catch(Exception e) {
@@ -184,62 +192,36 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		Date checkOut;
 		
 		try {
-//		System.out.println("enter meeting hall number");
-//		int meetingHallNumber = Integer.parseInt(sc.nextLine());
-//		do {
-//		System.out.println("enter check-in date");
-//		checkIn = sdf.parse(sc.nextLine());
-//		System.out.println("enter check-out date");
-//		checkOut = sdf.parse(sc.nextLine());
-//		if(checkIn.after(checkOut))
-//		{
-//			System.out.println("Invalid Date Format");
-//			dateFlag=false;
-//		}
-//		else
-//		{
-//			dateFlag=true;
-//		}
-//		}while(dateFlag!=true);
-//		System.out.println("enter category");
-//		System.out.println("1.Premium\n2.luxury\n3.standard\n4.budget");
-//		int categoryChoice = Integer.parseInt(sc.nextLine());
-//		String category = (categoryChoice==1)?"premium":(categoryChoice==2)?"luxury":(categoryChoice==3)?"standard":"budget";
-//		System.out.println("enter location");
-//		String location = sc.nextLine();
+
 			
 			Guest guestObj=(Guest)session.getAttribute("currentUser");
 			MeetingHallTransaction meetingHallTransObj=(MeetingHallTransaction)session.getAttribute("updateMeetingHallDetails");
 
 		
-		String updateRoomQuery="update meeting_hall_transaction set check_in=?,check_out=?,category=?,location=? where meeting_hall_number=?";
+		
 		
 		Connection conn = ConnectionUtil.getDbConnection();
-		PreparedStatement pstmt1 = conn.prepareStatement(updateRoomQuery);
 		
-		pstmt1.setDate(1, new java.sql.Date(sdf.parse(meetingHallTransObj.getCheckIn()).getTime()));
-		pstmt1.setDate(2, new java.sql.Date(sdf.parse(meetingHallTransObj.getCheckOut()).getTime()));
-		pstmt1.setString(3, meetingHallTransObj.getCategory());
-		pstmt1.setString(4, meetingHallTransObj.getLocation());
-		pstmt1.setInt(5, meetingHallTransObj.getroomNumber());
 		
-		pstmt1.executeUpdate();
+		
 
 		
 		String fetchVacantRoom="select meeting_hall_number from meeting_hall_details where status='vacant' and category=? and location=?";
+		String updateRoomQuery="update meeting_hall_transaction set check_in=?,check_out=?,category=?,location=? where meeting_hall_number=?";
 		String updateRoomQuery2="update meeting_hall_transaction set meeting_hall_number=? where check_in=? and check_out=? and category=? and location=? and guest_id=?";
 		String updateRoomQuery3 = "update meeting_hall_details set status='vacant' where meeting_hall_number=?";
 		String updateRoomQuery4 = "update meeting_hall_details set status='occupied' where meeting_hall_number=?";
 		
 		PreparedStatement pstmt2 = conn.prepareStatement(fetchVacantRoom);
+		PreparedStatement pstmt1 = conn.prepareStatement(updateRoomQuery);
 		PreparedStatement pstmt3 = conn.prepareStatement(updateRoomQuery2);
 		PreparedStatement pstmt4 = conn.prepareStatement(updateRoomQuery3);
 		PreparedStatement pstmt5 = conn.prepareStatement(updateRoomQuery4);
 		
 		pstmt2.setString(1, meetingHallTransObj.getCategory());
-//		System.out.println(category);
+		System.out.println(meetingHallTransObj.getCategory());
 		pstmt2.setString(2, meetingHallTransObj.getLocation());
-//		System.out.println(location);
+		System.out.println(meetingHallTransObj.getLocation());
 
 		
 		ResultSet rs = pstmt2.executeQuery();
@@ -249,6 +231,18 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 			System.out.println(rs.getInt(1));
 		}
 //		System.out.println(vacantRoomNumber);
+		
+		if(vacantMeetingHallNumber!=0) {
+		
+		
+		
+		pstmt1.setDate(1, new java.sql.Date(sdf.parse(meetingHallTransObj.getCheckIn()).getTime()));
+		pstmt1.setDate(2, new java.sql.Date(sdf.parse(meetingHallTransObj.getCheckOut()).getTime()));
+		pstmt1.setString(3, meetingHallTransObj.getCategory());
+		pstmt1.setString(4, meetingHallTransObj.getLocation());
+		pstmt1.setInt(5, meetingHallTransObj.getroomNumber());
+		
+		pstmt1.executeUpdate();
 		
 		GuestDaoImpl guestDaoObj = new GuestDaoImpl();
 		guestId=guestDaoObj.findGuestId(guestObj);
@@ -278,6 +272,10 @@ public class MeetingHallTransactionDaoImpl implements MeetingHallTransactionDao
 		if(flag)
 		{
 			System.out.println("Updated Room details");
+		}
+		}
+		else {
+			session.setAttribute("noMeetingHallToUpdate", "noMeetingHallUpdate");
 		}
 		}
 		catch(Exception e) {

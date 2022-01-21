@@ -72,9 +72,9 @@ input[type=checkbox] {
 
 
 <%
-RoomTransaction roomTransObj1=(RoomTransaction)session.getAttribute("bookRoomDetails");
-RoomTransactionDaoImpl roomTransObj = new RoomTransactionDaoImpl();
-int price = roomTransObj.findBookRoomPrice(session);
+RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("bookRoomDetails");
+RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
+int price = roomTransDaoObj.findBookRoomPrice(session);
 %>
 
 
@@ -84,15 +84,15 @@ int price = roomTransObj.findBookRoomPrice(session);
 
 <div class="col-sm-6 row verticalRule">
 
-<div class="col-sm-12"><label>Room Number :</label><%=roomTransObj1.getroomNumber() %></div>
+<div class="col-sm-12"><label>Room Number :</label><%=roomTransObj.getroomNumber() %></div>
 <div class="col-sm-6">
-<label>Check-In Date :</label><%=roomTransObj1.getCheckIn() %></div>
+<label>Check-In Date :</label><%=roomTransObj.getCheckIn() %></div>
 <div class="col-sm-6">
-<label>Check-Out Date :</label><%=roomTransObj1.getCheckOut() %></div>
+<label>Check-Out Date :</label><%=roomTransObj.getCheckOut() %></div>
 <div class="col-sm-6">
-<label>Category :</label><%=roomTransObj1.getCategory()%></div>
+<label>Category :</label><%=roomTransObj.getCategory()%></div>
 <div class="col-sm-6">
-<label>Location :</label><%=roomTransObj1.getLocation() %></div>
+<label>Location :</label><%=roomTransObj.getLocation() %></div>
 <div class="col-sm-12">
 <label>Price :</label><%=price %></div>
 </div>
@@ -107,7 +107,7 @@ int price = roomTransObj.findBookRoomPrice(session);
 		<input type="text" id="expiryDate" name="expiryDate" placeholder="mm/yy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
 		<label>CVV:</label>
 		<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
-		<input type="checkbox" id=cvvCheck name="cvvCheck" >
+		<input type="checkbox" id=cvvCheck name="cvvCheck" value="cvvok">
 		Save CVV for later use<br>
 		<button class="btn btn-primary">Pay Now</button>
 	</form>

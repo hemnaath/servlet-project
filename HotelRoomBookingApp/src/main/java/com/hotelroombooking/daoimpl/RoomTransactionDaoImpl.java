@@ -275,6 +275,7 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 		
 		pstmt5.setInt(1, vacantRoomNumber);
 		System.out.println(vacantRoomNumber);
+		System.out.println(roomTransObj.getroomNumber());
 		flag=pstmt5.executeUpdate()>0;
 		
 		if(flag)

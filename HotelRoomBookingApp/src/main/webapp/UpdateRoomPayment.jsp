@@ -69,24 +69,24 @@ input[type=checkbox] {
 </head>
 <body>
 <%
-RoomTransaction roomTransObj1=(RoomTransaction)session.getAttribute("updateRoomDetails");
-RoomTransactionDaoImpl roomTransObj = new RoomTransactionDaoImpl();
-int price = roomTransObj.findUpdateRoomPrice(session);
+RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("updateRoomDetails");
+RoomTransactionDaoImpl roomTransDaoObj = new RoomTransactionDaoImpl();
+int price = roomTransDaoObj.findUpdateRoomPrice(session);
 %>
 
 <div class="registerForm row">	
 
 <div class="col-sm-6 row verticalRule">
 
-<div class="col-sm-12"><label>Room Number :</label><%=roomTransObj1.getroomNumber() %></div>
+<div class="col-sm-12"><label>Room Number :</label><%=roomTransObj.getroomNumber() %></div>
 <div class="col-sm-6">
-<label>Check-In Date :</label><%=roomTransObj1.getCheckIn() %></div>
+<label>Check-In Date :</label><%=roomTransObj.getCheckIn() %></div>
 <div class="col-sm-6">
-<label>Check-Out Date :</label><%=roomTransObj1.getCheckOut() %></div>
+<label>Check-Out Date :</label><%=roomTransObj.getCheckOut() %></div>
 <div class="col-sm-6">
-<label>Category :</label><%=roomTransObj1.getCategory()%></div>
+<label>Category :</label><%=roomTransObj.getCategory()%></div>
 <div class="col-sm-6">
-<label>Location :</label><%=roomTransObj1.getLocation() %></div>
+<label>Location :</label><%=roomTransObj.getLocation() %></div>
 <div class="col-sm-12">
 <label>Price :</label><%=price %></div>
 </div>

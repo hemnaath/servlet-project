@@ -35,8 +35,8 @@ public class PaymentDaoImpl implements PaymentDao
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(cardDetailsQuery);
 		pstmt.setLong(1, paymentObj.getCardNumber());
-		pstmt.setString(2, paymentObj.getMonth());	
-		pstmt.setInt(3, paymentObj.getCvv());
+		pstmt.setString(2, paymentObj.getExpiryDate());	
+		pstmt.setString(3, paymentObj.getCvv());
 		pstmt.setInt(4, guestId);
 		flag=pstmt.executeUpdate()>0;
 		if(flag)

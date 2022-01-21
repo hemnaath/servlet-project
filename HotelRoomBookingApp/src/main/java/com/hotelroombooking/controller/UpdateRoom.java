@@ -63,7 +63,7 @@ public class UpdateRoom extends HttpServlet {
 			
 		}
 		else {
-			response.sendRedirect("BookRoomPayment.jsp");
+			response.sendRedirect("UpdateRoomPayment.jsp");
 		}
 		
 		

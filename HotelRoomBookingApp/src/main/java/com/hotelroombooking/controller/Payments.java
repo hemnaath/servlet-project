@@ -2,6 +2,8 @@ package com.hotelroombooking.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,10 +48,15 @@ public class Payments extends HttpServlet {
 		
 		long cardNumber = Long.parseLong(request.getParameter("cardNumber"));
 		String expiryDate = request.getParameter("expiryDate");
+		String cvvCheck = request.getParameter("cvvCheck");
 		
-	
-		int cvv = Integer.parseInt(request.getParameter("cvv"));
+		String cvv = request.getParameter("cvv");
 		
+		
+		if(cvvCheck == null)
+		{
+			cvv=null;
+		}
 		
 		Payment paymentObj = new Payment(0,cardNumber,expiryDate,cvv,null);
 		PaymentDaoImpl paymentDaoObj = new PaymentDaoImpl();

@@ -58,7 +58,14 @@ public class UpdateMeetingHall extends HttpServlet {
 		session.setAttribute("updateMeetingHallDetails", meetingHallTransObj);
 		boolean flag=meetingHallTransDaoObj.updateMeetingHall(session);
 		
+		
+		if(session.getAttribute("noMeetingHallsToUpdate")!=null) {
+			response.sendRedirect("GuestDashboard.jsp");
+			
+		}
+		else {
 		response.sendRedirect("UpdateMeetingHallPayment.jsp");
+		}
 		
 //		PrintWriter pw = response.getWriter();
 //		pw.write(flag+"");
