@@ -45,8 +45,13 @@ public class Payments extends HttpServlet {
 		
 		
 		long cardNumber = Long.parseLong(request.getParameter("cardNumber"));
+		String expiryDate = request.getParameter("expiryDate");
 		
-		Payment paymentObj = new Payment(0,cardNumber,null);
+	
+		int cvv = Integer.parseInt(request.getParameter("cvv"));
+		
+		
+		Payment paymentObj = new Payment(0,cardNumber,expiryDate,cvv,null);
 		PaymentDaoImpl paymentDaoObj = new PaymentDaoImpl();
 		HttpSession session = request.getSession();
 		session.setAttribute("payment", paymentObj);

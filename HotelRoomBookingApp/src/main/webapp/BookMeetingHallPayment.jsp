@@ -46,6 +46,11 @@
     padding: 7px;
     margin-bottom: 10px;
 }
+input[type=checkbox] {
+    margin: 15px -182px 0px;
+    margin-top: 1px\9;
+    line-height: normal;
+}
 
 .formcontent label {
     margin: 5px 0px;
@@ -100,6 +105,8 @@ int price = meetingHallTransObj.findBookMeetingPrice(session);
 		<input type="text" id="expiryDate" name="expiryDate" placeholder="mm/yy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
 		<label>CVV:</label>
 		<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
+		<input type="checkbox" id=cvvCheck name="cvvCheck" >
+		Save CVV for later use<br>
 		<button class="btn btn-primary">Pay Now</button>
 	</form>
 	</div>

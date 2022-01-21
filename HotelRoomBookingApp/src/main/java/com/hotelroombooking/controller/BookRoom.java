@@ -55,7 +55,13 @@ public class BookRoom extends HttpServlet {
 		session.setAttribute("bookRoomDetails", roomTransObj);
 		roomTransDaoObj.bookRoom(session);
 		
-		response.sendRedirect("BookRoomPayment.jsp");
+		if(session.getAttribute("NoRoomsToBook")!=null) {
+			response.sendRedirect("GuestDashboard.jsp");
+			
+		}
+		else {
+			response.sendRedirect("BookRoomPayment.jsp");
+		}
 
 	}
 

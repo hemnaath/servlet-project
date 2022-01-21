@@ -31,11 +31,13 @@ public class PaymentDaoImpl implements PaymentDao
 
 			guestId=guestDaoObj.findGuestId(guestObj);
 		
-		String cardDetailsQuery = "insert into payment_details(card_number,guest_id) values (?,?)";
+		String cardDetailsQuery = "insert into payment_details(card_number,expiry_date,cvv,guest_id) values (?,?,?,?)";
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = conn.prepareStatement(cardDetailsQuery);
 		pstmt.setLong(1, paymentObj.getCardNumber());
-		pstmt.setInt(2, guestId);
+		pstmt.setString(2, paymentObj.getMonth());	
+		pstmt.setInt(3, paymentObj.getCvv());
+		pstmt.setInt(4, guestId);
 		flag=pstmt.executeUpdate()>0;
 		if(flag)
 		{

@@ -108,7 +108,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 		{
 //			System.out.println("Weddings Hall booked");
 			pstmt3.executeUpdate();
-			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookWeddingHallMail(weddingHallTransObj));
+			Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookWeddingHallMail(weddingHallTransObj));
 
 		}
 		else
@@ -154,7 +154,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 		if(flag)
 		{
 			System.out.println("Booking Cancelled");
-			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.cancelWeddingHallMail(weddingHallTransObj));
+			Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.cancelWeddingHallMail(weddingHallTransObj));
 
 		}
 		else
@@ -262,7 +262,7 @@ public class WeddingHallTransactionDaoImpl implements WeddingHallTransactionDao
 		
 //		 weddingHallTransObj = new WeddingHallTransaction(vacantWeddingRoomNumber,String.valueOf(checkIn),String.valueOf(checkOut)
 //				,category,location);
-		Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.updateWeddingHallMail(weddingHallTransObj));
+		Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.updateWeddingHallMail(weddingHallTransObj));
 
 
 		

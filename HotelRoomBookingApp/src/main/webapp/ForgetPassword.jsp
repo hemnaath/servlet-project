@@ -79,7 +79,7 @@
 						<img src="assets/forget.png" class="img-fluid">
 					</div>
 					<div class="col-sm-6">
-				<form action="forgetpassword" method="post">
+				<form action="Forgetpassword" method="post">
 					<div class="col-sm-12 p-0">
 						<label for="email">Email</label>
 							<input type="text" id="email" name="email" class="form-control" placeholder="Enter Email" pattern="[a-zA-Z0-9]+[@][a-z]+[.][a-z]+" title="Invalid Email" required>

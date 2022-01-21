@@ -101,6 +101,27 @@ ul.dropdown {
 
 </head>
 <body>
+
+<%
+if(session.getAttribute("NoRoomsToBook")!=null){
+%><script type="text/javascript">
+alert("No Rooms Availble");
+<% session.removeAttribute("NoRoomsToBook"); %>
+</script>
+<%} %>
+
+<%
+if(session.getAttribute("noRoomsToUpdate")!=null){
+%><script type="text/javascript">
+alert("No Rooms Availble");
+<% session.removeAttribute("noRoomsToUpdate"); %>
+</script>
+<%} %>
+
+
+
+
+
 <div class="header container-fluid">
 
 <%Guest guestObj = (Guest)session.getAttribute("currentUser");%>

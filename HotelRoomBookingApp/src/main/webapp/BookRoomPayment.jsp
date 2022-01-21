@@ -24,8 +24,10 @@
 }
 	.formBtn {
 	    text-align: center;
+	   
 	}
 	.formBtn input {
+	
 	    margin: 10px;
 	}
 	.registerForm input {
@@ -52,7 +54,11 @@
 .verticalRule label {
     margin-bottom: 40px;
 }
-
+input[type=checkbox] {
+    margin: 15px -182px 0px;
+    margin-top: 1px\9;
+    line-height: normal;
+}
 .verticalRule {
     border-right: 1px solid #d9d9d9;
     height: 100%;
@@ -101,6 +107,8 @@ int price = roomTransObj.findBookRoomPrice(session);
 		<input type="text" id="expiryDate" name="expiryDate" placeholder="mm/yy" pattern="[0-9]{2}[/][0-9]{2}" title="invalid expiry date"required>
 		<label>CVV:</label>
 		<input type="text" id="cvv" name="cvv" placeholder="CVV" pattern="[0-9]{3}" title="invalid cvv"required>
+		<input type="checkbox" id=cvvCheck name="cvvCheck" >
+		Save CVV for later use<br>
 		<button class="btn btn-primary">Pay Now</button>
 	</form>
 	</div>

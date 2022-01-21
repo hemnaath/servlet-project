@@ -67,8 +67,10 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 //		System.out.println(bookRoomQuery);
 		Connection conn = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt1 = conn.prepareStatement(fetchVacantRoom);
+		
 	Guest guestObj=(Guest)session.getAttribute("currentUser");
 	RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("bookRoomDetails");
+	
 		pstmt1.setString(1, roomTransObj.getCategory());
 		pstmt1.setString(2, roomTransObj.getLocation());
 		
@@ -84,49 +86,54 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 			flag=true;
 			vacantRoomNumber=rs.getInt(1);
 //			System.out.println(vacantRoomNumber);
-			//roomTransObj= new RoomTransaction(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
-		}
-// System.out.println(vacantRoomNumber);
-		PreparedStatement pstmt2 = conn.prepareStatement(bookRoomQuery);
-		PreparedStatement pstmt3 = conn.prepareStatement(updateBookRoomQuery);
-		
-		GuestDaoImpl guestDaoObj = new GuestDaoImpl();
-
-		guestId=guestDaoObj.findGuestId(guestObj);
-//		System.out.println(guestId);
-	
-		roomTransObj.setroomNumber(vacantRoomNumber);
-		pstmt2.setInt(1, vacantRoomNumber);
-		pstmt2.setDate(2, new java.sql.Date(sdf.parse(roomTransObj.getCheckIn()).getTime()));
-//		System.out.println(sdf.parse(roomTransObj.getCheckIn()));
-		pstmt2.setDate(3, new java.sql.Date(sdf.parse(roomTransObj.getCheckOut()).getTime()));
-		pstmt2.setString(4, roomTransObj.getCategory());
-		pstmt2.setString(5,roomTransObj.getLocation());
-		pstmt2.setInt(6, guestId);
-		
-		pstmt3.setInt(1, vacantRoomNumber);
-		
-//		System.out.println(bookRoomQuery);
-//		roomTransObj= new RoomTransaction(vacantRoomNumber,String.valueOf(checkIn),String.valueOf(checkOut),roomTransObj.getCategory(),roomTransObj.getLocation());
-		
-		flag = pstmt2.executeUpdate()>0;
-//		System.out.println("hloo");
-		if(flag)
-		{
-//			System.out.println("Room booked");
-			pstmt3.executeUpdate();
-//			System.out.println("hlooo");
 			
-			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookRoomMail(roomTransObj));
+		}
+//		System.out.println(vacantRoomNumber);
+		
+		if(vacantRoomNumber!=0)
+		{
+			PreparedStatement pstmt2 = conn.prepareStatement(bookRoomQuery);
+			PreparedStatement pstmt3 = conn.prepareStatement(updateBookRoomQuery);
+		
+			GuestDaoImpl guestDaoObj = new GuestDaoImpl();
+
+			guestId=guestDaoObj.findGuestId(guestObj);
+//			System.out.println(guestId);
+	
+			roomTransObj.setroomNumber(vacantRoomNumber);
+			pstmt2.setInt(1, vacantRoomNumber);
+			pstmt2.setDate(2, new java.sql.Date(sdf.parse(roomTransObj.getCheckIn()).getTime()));
+//			System.out.println(sdf.parse(roomTransObj.getCheckIn()));
+			pstmt2.setDate(3, new java.sql.Date(sdf.parse(roomTransObj.getCheckOut()).getTime()));
+			pstmt2.setString(4, roomTransObj.getCategory());
+			pstmt2.setString(5,roomTransObj.getLocation());
+			pstmt2.setInt(6, guestId);
+		
+			pstmt3.setInt(1, vacantRoomNumber);
+		
+//			System.out.println(bookRoomQuery);
+//			roomTransObj= new RoomTransaction(vacantRoomNumber,String.valueOf(checkIn),String.valueOf(checkOut),roomTransObj.getCategory(),roomTransObj.getLocation());
+		
+			flag = pstmt2.executeUpdate()>0;
+//			System.out.println("hloo");
+			if(flag)
+			{
+//				System.out.println("Room booked");
+				pstmt3.executeUpdate();
+//				System.out.println("hlooo");
+				
+				Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.bookRoomMail(roomTransObj));
+			}
 		}
 		else
 		{
-//			System.out.println("Error in room booking");
+			System.out.println("Error in room booking");
+			session.setAttribute("NoRoomsToBook", "noRooms");
 		}
-		}
+	}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return flag;
 		 
@@ -160,14 +167,16 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 		if(flag)
 		{
 //			System.out.println("Booking Cancelled");
-			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.cancelRoomMail(roomTransObj));
+			Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.cancelRoomMail(roomTransObj));
 
 		}
+		
 		else
 		{
 			System.out.println("Invalid Room");
 		}
 		}
+		
 		catch(Exception e) {
 			System.out.println(e);
 		}
@@ -190,52 +199,26 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 //		RoomTransaction roomTransObj=null;
 		
 		try {
-//		System.out.println("enter room number");
-//		int roomNumber = Integer.parseInt(sc.nextLine());
-//		do {
-//		System.out.println("enter check-in date");
-//		checkIn = sdf.parse(sc.nextLine());
-//		System.out.println("enter check-out date");
-//		checkOut = sdf.parse(sc.nextLine());
-//		if(checkIn.after(checkOut))
-//		{
-//			System.out.println("Invalid Date Format");
-//			dateFlag=false;
-//		}
-//		else
-//		{
-//			dateFlag=true;
-//		}
-//		}while(dateFlag!=true);
-//		System.out.println("enter category");
-//		System.out.println("1.premium\n2.luxury\n3.standard\n4.budget");
-//		int categoryChoice = Integer.parseInt(sc.nextLine());
-//		String category = (categoryChoice==1)?"Premium":(categoryChoice==2)?"luxury":(categoryChoice==3)?"standard":"budget";
-//		System.out.println("enter location");
-//		String location = sc.nextLine();
+			
 			Guest guestObj=(Guest)session.getAttribute("currentUser");
 			RoomTransaction roomTransObj=(RoomTransaction)session.getAttribute("updateRoomDetails");
 		
-		String updateRoomQuery="update room_transaction set check_in=?,check_out=?,category=?,location=? where room_number=?";
+		
 		
 		Connection conn = ConnectionUtil.getDbConnection();
-		PreparedStatement pstmt1 = conn.prepareStatement(updateRoomQuery);
 		
-		pstmt1.setDate(1, new java.sql.Date(sdf.parse(roomTransObj.getCheckIn()).getTime()));
-		pstmt1.setDate(2, new java.sql.Date(sdf.parse(roomTransObj.getCheckOut()).getTime()));
-		pstmt1.setString(3, roomTransObj.getCategory());
-		pstmt1.setString(4, roomTransObj.getLocation());
-		pstmt1.setInt(5, roomTransObj.getroomNumber());
 		
-		pstmt1.executeUpdate();
+		
 
 		
 		String fetchVacantRoom="select room_number from room_details where status='vacant' and category=? and location=?";
+		String updateRoomQuery="update room_transaction set check_in=?,check_out=?,category=?,location=? where room_number=?";
 		String updateRoomQuery2="update room_transaction set room_number=? where check_in=? and check_out=? and category=? and location=? and guest_id=?";
 		String updateRoomQuery3 = "update room_details set status='vacant' where room_number=?";
 		String updateRoomQuery4 = "update room_details set status='occupied' where room_number=?";
 		
 		PreparedStatement pstmt2 = conn.prepareStatement(fetchVacantRoom);
+		PreparedStatement pstmt1 = conn.prepareStatement(updateRoomQuery);
 		PreparedStatement pstmt3 = conn.prepareStatement(updateRoomQuery2);
 		PreparedStatement pstmt4 = conn.prepareStatement(updateRoomQuery3);
 		PreparedStatement pstmt5 = conn.prepareStatement(updateRoomQuery4);
@@ -253,6 +236,18 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 			System.out.println(rs.getInt(1));
 		}
 //		System.out.println(vacantRoomNumber);
+		
+		if(vacantRoomNumber!=0) {
+		
+		pstmt1.setDate(1, new java.sql.Date(sdf.parse(roomTransObj.getCheckIn()).getTime()));
+		pstmt1.setDate(2, new java.sql.Date(sdf.parse(roomTransObj.getCheckOut()).getTime()));
+		pstmt1.setString(3, roomTransObj.getCategory());
+		pstmt1.setString(4, roomTransObj.getLocation());
+		pstmt1.setInt(5, roomTransObj.getroomNumber());
+		
+		pstmt1.executeUpdate();
+		
+		
 		
 		GuestDaoImpl guestDaoObj = new GuestDaoImpl();
 		guestId=guestDaoObj.findGuestId(guestObj);
@@ -285,8 +280,12 @@ public class RoomTransactionDaoImpl implements RoomTransactionDao{
 		if(flag)
 		{
 			System.out.println("Updated Room details");
-			Mailer.send("hemnaathrsurya@gmail.com", "hangover@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.updateRoomMail(roomTransObj));
+			Mailer.send("hemnaathrsurya@gmail.com", "hemnaath@18!!", guestObj.getEmail(), "Hotel Room Booking Application", Mail.updateRoomMail(roomTransObj));
 
+		}
+		}
+		else {
+			session.setAttribute("noRoomsToUpdate", "noUpdate");
 		}
 		}
 		catch(Exception e) {

@@ -89,6 +89,8 @@ foreign key (guest_id) references guest_details(id)
 create table payment_details(
 id int GENERATED ALWAYS AS IDENTITY START WITH 1 primary key,
 card_number number(16),
+expiry_date varchar(5),
+cvv int,
 guest_id int,
 foreign key (guest_id) references guest_details (id)
 );

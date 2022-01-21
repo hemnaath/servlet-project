@@ -7,30 +7,29 @@ public class Payment
 {
 	private int id;
 	private long cardNumber;
+	private String expiryDate;
+	private int cvv;
 	private Guest guestId;
-	
-	
-	public Payment(int id, long cardNumber, Guest guestId) {
+	public Payment(int id, long cardNumber, String month, int cvv, Guest guestId) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
+		this.expiryDate = month;
+		this.cvv = cvv;
 		this.guestId = guestId;
 	}
-	
-	
-	
-	
 	public Payment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
-		return "Payment [id=" + id + ", cardNumber=" + cardNumber + ", guestId=" + guestId + "]";
+		return "Payment [id=" + id + ", cardNumber=" + cardNumber + ", expiryDate=" + expiryDate + ", cvv=" + cvv + ", guestId="
+				+ guestId + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cardNumber, guestId, id);
+		return Objects.hash(cardNumber, cvv, guestId, id, expiryDate);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -41,7 +40,8 @@ public class Payment
 		if (getClass() != obj.getClass())
 			return false;
 		Payment other = (Payment) obj;
-		return cardNumber == other.cardNumber && Objects.equals(guestId, other.guestId) && id == other.id;
+		return cardNumber == other.cardNumber && cvv == other.cvv && Objects.equals(guestId, other.guestId)
+				&& id == other.id && Objects.equals(expiryDate, other.expiryDate);
 	}
 	public int getId() {
 		return id;
@@ -55,12 +55,26 @@ public class Payment
 	public void setCardNumber(long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
+	public String getMonth() {
+		return expiryDate;
+	}
+	public void setMonth(String month) {
+		this.expiryDate = month;
+	}
+	public int getCvv() {
+		return cvv;
+	}
+	public void setCvv(int cvv) {
+		this.cvv = cvv;
+	}
 	public Guest getGuestId() {
 		return guestId;
 	}
 	public void setGuestId(Guest guestId) {
 		this.guestId = guestId;
 	}
+	
+	
 	
 	
 }
