@@ -1,4 +1,4 @@
-package com.springdemo.dao;
+package com.sample.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.springdemo.model.Employee;
-import com.springdemo.util.ConnectionUtil;
+import com.sample.model.Employee;
+import com.sample.util.ConnectionUtil;
 
 public class EmployeeDao {
 
 	public List<Employee> searchEmpDetails(Employee empObj) {
 		Connection conn = ConnectionUtil.getDbConnection();
-
 		List<Employee> empDetailsList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		StringBuilder searchEmpDetailsQuery = new StringBuilder();
@@ -25,8 +24,19 @@ public class EmployeeDao {
 			if (!empObj.getEmpCode().equals("")) {
 				searchEmpDetailsQuery.append(" emp_code= " + "'" + empObj.getEmpCode() + "'");
 			} else if (empObj.getEmpCity() != null) {
-				searchEmpDetailsQuery.append(" emp_city= " + "'" + empObj.getEmpCity() + "'");
+				if (!empObj.getEmpCode().equals("")) {
+					searchEmpDetailsQuery.append(" emp_city= " + "'" + empObj.getEmpCity() + "'" + "and" + " emp_code= "
+							+ "'" + empObj.getEmpCode() + "'");
+				} else {
+					searchEmpDetailsQuery.append(" emp_city= " + "'" + empObj.getEmpCity() + "'");
+				}
+
 			} else if (empObj.getEmpState() != null) {
+				if (!empObj.getEmpCode().equals("") && empObj.getEmpCity() != null) {
+					searchEmpDetailsQuery.append(" emp_city= " + "'" + empObj.getEmpCity() + "'" + "and" + " emp_code= "
+							+ "'" + empObj.getEmpCode() + "'" + "and" + " emp_state= " + "'" + empObj.getEmpState()
+							+ "'");
+				}
 				searchEmpDetailsQuery.append(" emp_state= " + "'" + empObj.getEmpState() + "'");
 			}
 

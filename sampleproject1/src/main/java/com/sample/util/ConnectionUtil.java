@@ -1,4 +1,4 @@
-package com.springdemo.util;
+package com.sample.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,13 +14,4 @@ public class ConnectionUtil {
 		}
 		return conn;
 	}
-//	public DataSource getDataSource() {
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
-//		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-//		dataSource.setUsername("system");
-//		dataSource.setPassword("oracle");
-//
-//		return dataSource;
-//	}
 }

@@ -90,7 +90,7 @@ create table payment_details(
 id int GENERATED ALWAYS AS IDENTITY START WITH 1 primary key,
 card_number number(16),
 expiry_date varchar(5),
-cvv int,
+cvv varchar(100),
 guest_id int,
 foreign key (guest_id) references guest_details (id)
 );
@@ -108,7 +108,7 @@ insert into admin(email,password) values('admin@tstays.com','Web123');
 
 
 select * from guest_details;
-select * from room_details;
+select * from room_details; 
 select * from wedding_hall_details;
 select * from meeting_hall_details;
 select * from room_transaction;
@@ -120,7 +120,7 @@ select * from payment_details;
 truncate table room_transaction;
 truncate table wedding_hall_transaction;
 truncate table meeting_hall_transaction;
-truncate table paymeknt_details;
+truncate table payment_details;
 
 drop table guest_details CASCADE CONSTRAINTS;
 drop table room_details;
@@ -144,6 +144,10 @@ from meeting_hall_details inner join meeting_hall_transaction ON
 meeting_hall_details.meeting_hall_number=meeting_hall_transaction.meeting_hall_number 
 where meeting_hall_details.status='occupied';
 
+
+
+
+commit;
 
 insert into wedding_hall_details(wedding_hall_number,category,location,price) values(2004,'premium','chennai',8000);
 update meeting_hall_details set category='premium',location='coimbatore',price=1000 where meeting_hall_number=3004;
